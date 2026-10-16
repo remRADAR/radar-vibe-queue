@@ -1,39 +1,41 @@
 # RADAR VIBE QUEUE
 
-A portable, platform-neutral prompt queue for RADAR work across Manus and other AI agents. It turns the supplied Drive materials into a practical router plus focused, copy-ready agent prompts.
+A portable, platform-neutral queue of **10 importable skills** for RADAR social intelligence, agent architecture, software building, debugging, research, and authorized product study. Each skill is implemented as a standard `SKILL.md` with YAML `name` and `description` frontmatter; plain-Markdown queue prompts remain available for agents without skill-import support.
 
-> **What this is:** a reusable prompt/skill library—not a task tracker, bot, or autonomous execution service.
+## Import into Manus or another agent
 
-## Start here
+This repository is public. Use the GitHub repository root to import the **complete queue skill**:
 
-1. Add this repository to the agent's context, import it if the agent supports GitHub repositories, or copy the files into the agent workspace.
-2. Ask the agent to read [`AGENTS.md`](AGENTS.md) and [`QUEUE.md`](QUEUE.md).
-3. Route the task using [`queues/00-router.md`](queues/00-router.md), then load only the relevant queue file(s).
-4. Provide the concrete goal, relevant files/data, authorized scope, constraints, and desired output.
-5. Ask for evidence and verification—not just a plausible answer or a successful tool call.
+- Repository: <https://github.com/remRADAR/radar-vibe-queue>
+- Root skill file: <https://github.com/remRADAR/radar-vibe-queue/blob/main/SKILL.md>
+- Root skill directory: <https://github.com/remRADAR/radar-vibe-queue/tree/main/skills/radar-vibe-queue>
 
-## Queue modules
+For a single specialist, import its directory (the directory contains `SKILL.md`):
 
-| Queue | Use it for |
+| Skill | GitHub import path |
 |---|---|
-| [`radarmeta-social-intelligence.md`](queues/radarmeta-social-intelligence.md) | RADARCharts social/account intelligence, community, trends, brand, growth, and review briefs |
-| [`universal-agent-architect.md`](queues/universal-agent-architect.md) | Agent design, tool contracts, orchestration, memory, approvals, evaluation, and observability |
-| [`application-engineering.md`](queues/application-engineering.md) | Product-to-implementation work across web, mobile, desktop, and services |
-| [`web-development.md`](queues/web-development.md) | Web product design/build/review, accessibility, security, performance, and deployment checks |
-| [`lovable-vibecode.md`](queues/lovable-vibecode.md) | Prompt-driven builders and AI-generated application code |
-| [`debug-incident.md`](queues/debug-incident.md) | Reproduction, diagnosis, incident coordination, repair, and regression proof |
-| [`market-intelligence.md`](queues/market-intelligence.md) | Evidence-based financial/company/market research and risk analysis |
-| [`code-language.md`](queues/code-language.md) | Language/runtime-aware implementation, translation, review, and debugging |
-| [`authorized-product-study.md`](queues/authorized-product-study.md) | Permitted product/website analysis and independent functional equivalents |
+| RADAR VIBE QUEUE router | [`skills/radar-vibe-queue`](https://github.com/remRADAR/radar-vibe-queue/tree/main/skills/radar-vibe-queue) |
+| RADARMeta social intelligence | [`skills/radar-meta`](https://github.com/remRADAR/radar-vibe-queue/tree/main/skills/radar-meta) |
+| Universal agent architect | [`skills/universal-agent-architect`](https://github.com/remRADAR/radar-vibe-queue/tree/main/skills/universal-agent-architect) |
+| Application engineering | [`skills/application-engineering`](https://github.com/remRADAR/radar-vibe-queue/tree/main/skills/application-engineering) |
+| Web development | [`skills/web-development`](https://github.com/remRADAR/radar-vibe-queue/tree/main/skills/web-development) |
+| Lovable / vibecode | [`skills/lovable-vibecode`](https://github.com/remRADAR/radar-vibe-queue/tree/main/skills/lovable-vibecode) |
+| Debugging and incident response | [`skills/debug-incident`](https://github.com/remRADAR/radar-vibe-queue/tree/main/skills/debug-incident) |
+| Market intelligence | [`skills/market-intelligence`](https://github.com/remRADAR/radar-vibe-queue/tree/main/skills/market-intelligence) |
+| Code and language engineering | [`skills/code-language`](https://github.com/remRADAR/radar-vibe-queue/tree/main/skills/code-language) |
+| Authorized product study | [`skills/authorized-product-study`](https://github.com/remRADAR/radar-vibe-queue/tree/main/skills/authorized-product-study) |
 
-The machine-readable index is [`queue.json`](queue.json). Background and source decisions are in [`SOURCE_NOTES.md`](SOURCE_NOTES.md).
+If an importer asks for a **repository and path**, use `remRADAR/radar-vibe-queue` plus the desired directory above. Start with `skills/radar-vibe-queue` for automatic routing, or import only the focused specialist you need.
 
-## Cross-agent portability
+## Queue prompts and workflow
 
-The files are plain Markdown and JSON; no specific model, connector, runtime, or vendor is assumed. For agents that support repository instructions, start with `AGENTS.md`. For agents with a skill-import feature, [`skills/radar-meta/SKILL.md`](skills/radar-meta/SKILL.md) is available in an Agent Skills-style format. Otherwise, paste the relevant queue file into the agent's context.
+1. Read [`AGENTS.md`](AGENTS.md) and [`QUEUE.md`](QUEUE.md) for the cross-agent operating contract.
+2. Use [`queues/00-router.md`](queues/00-router.md) to pick a prompt module, or load the matching `SKILL.md` directly.
+3. Provide the task's outcome, relevant files/data, authorized scope, constraints, and desired output.
+4. Require evidence and verification—not just a plausible answer or successful tool call.
 
-A queue file describes **how to reason and report**. It does not grant permissions or create connector access. The active agent must discover and verify its own tools, scopes, source freshness, and authorization before acting. This repository never outranks an agent's system/developer instructions or the user's explicit limits.
+The plain-Markdown prompts are in [`queues/`](queues/); the machine-readable index is [`queue.json`](queue.json). Source and curation notes are in [`SOURCE_NOTES.md`](SOURCE_NOTES.md).
 
-## Visibility
+## Portability and permissions
 
-This repository is intentionally **private**. An agent needs GitHub access to import it. Making it public would let anyone view and copy the queue; choose public visibility only deliberately.
+The skills use plain Markdown and YAML frontmatter; no specific model, connector, runtime, or vendor is assumed. They describe how to reason and report—they do **not** grant tool access, credentials, or permission to perform actions. The active agent must verify its own tools, scope, source freshness, and authorization. This repository never outranks the agent's system/developer instructions or the user's explicit limits.

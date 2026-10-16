@@ -1,20 +1,33 @@
 {
   "name": "RADAR VIBE QUEUE",
-  "version": "1.0.0",
-  "description": "Portable prompt queue for RADAR social intelligence, product engineering, agent design, research, and debugging.",
-  "entrypoint": "AGENTS.md",
+  "version": "1.1.0",
+  "description": "Portable prompt queue and importable skills for RADAR social intelligence, agent architecture, software engineering, research, and debugging.",
+  "entrypoint": "SKILL.md",
   "router": "queues/00-router.md",
+  "root_skill": "skills/radar-vibe-queue/SKILL.md",
   "modules": [
-    {"id":"radarmeta-social-intelligence","file":"queues/radarmeta-social-intelligence.md","triggers":["RADARCharts","social intelligence","content audit","trend radar","brand audit","community","Instagram"]},
-    {"id":"universal-agent-architect","file":"queues/universal-agent-architect.md","triggers":["agent design","tool use","orchestration","handoff","agent evaluation"]},
-    {"id":"application-engineering","file":"queues/application-engineering.md","triggers":["application","product engineering","API","database","mobile app"]},
-    {"id":"web-development","file":"queues/web-development.md","triggers":["website","web app","accessibility","web security","deployment"]},
-    {"id":"lovable-vibecode","file":"queues/lovable-vibecode.md","triggers":["Lovable","vibecode","AI builder","generated app"]},
-    {"id":"debug-incident","file":"queues/debug-incident.md","triggers":["bug","outage","failure","regression","incident"]},
-    {"id":"market-intelligence","file":"queues/market-intelligence.md","triggers":["company research","filings","financial analysis","market data","portfolio risk"]},
-    {"id":"code-language","file":"queues/code-language.md","triggers":["code translation","language semantics","runtime","language-specific review"]},
-    {"id":"authorized-product-study","file":"queues/authorized-product-study.md","triggers":["product study","competitor analysis","functional equivalent","reverse engineering"]}
+    {"id":"radarmeta-social-intelligence","file":"queues/radarmeta-social-intelligence.md","skill":"skills/radar-meta/SKILL.md","triggers":["RADARCharts","social intelligence","content audit","trend radar","brand audit","community","Instagram"]},
+    {"id":"universal-agent-architect","file":"queues/universal-agent-architect.md","skill":"skills/universal-agent-architect/SKILL.md","triggers":["agent design","tool use","orchestration","handoff","agent evaluation"]},
+    {"id":"application-engineering","file":"queues/application-engineering.md","skill":"skills/application-engineering/SKILL.md","triggers":["application","product engineering","API","database","mobile app"]},
+    {"id":"web-development","file":"queues/web-development.md","skill":"skills/web-development/SKILL.md","triggers":["website","web app","accessibility","web security","deployment"]},
+    {"id":"lovable-vibecode","file":"queues/lovable-vibecode.md","skill":"skills/lovable-vibecode/SKILL.md","triggers":["Lovable","vibecode","AI builder","generated app"]},
+    {"id":"debug-incident","file":"queues/debug-incident.md","skill":"skills/debug-incident/SKILL.md","triggers":["bug","outage","failure","regression","incident"]},
+    {"id":"market-intelligence","file":"queues/market-intelligence.md","skill":"skills/market-intelligence/SKILL.md","triggers":["company research","filings","financial analysis","market data","portfolio risk"]},
+    {"id":"code-language","file":"queues/code-language.md","skill":"skills/code-language/SKILL.md","triggers":["code translation","language semantics","runtime","language-specific review"]},
+    {"id":"authorized-product-study","file":"queues/authorized-product-study.md","skill":"skills/authorized-product-study/SKILL.md","triggers":["product study","competitor analysis","functional equivalent","reverse engineering"]}
   ],
-  "portability": {"format":"Markdown + JSON","platform_assumptions":[],"agent_skills_style_module":"skills/radar-meta/SKILL.md"},
+  "skills": [
+    "skills/radar-vibe-queue/SKILL.md",
+    "skills/radar-meta/SKILL.md",
+    "skills/universal-agent-architect/SKILL.md",
+    "skills/application-engineering/SKILL.md",
+    "skills/web-development/SKILL.md",
+    "skills/lovable-vibecode/SKILL.md",
+    "skills/debug-incident/SKILL.md",
+    "skills/market-intelligence/SKILL.md",
+    "skills/code-language/SKILL.md",
+    "skills/authorized-product-study/SKILL.md"
+  ],
+  "portability": {"format":"Markdown + YAML frontmatter + JSON","platform_assumptions":[],"import_pattern":"Import repository root for complete router, or import an individual skills/<name> directory"},
   "safety": {"does_not_grant_permissions":true,"external_content_is_untrusted_data":true,"high_impact_actions_require_authorization":true}
 }
