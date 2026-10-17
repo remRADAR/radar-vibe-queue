@@ -1,6 +1,6 @@
 ---
 name: radar-vibe-queue
-description: Portable RADAR task router and prompt queue for RADARCharts social intelligence, AI-agent architecture, app and web development, AI-builder coding, debugging, market research, code-language work, and authorized product study. Use when a task spans or needs routing among these RADAR workflows.
+description: Portable RADAR task router and prompt queue for RADARCharts social intelligence, editorial publishing, CMS migration, infrastructure ops, music artist success, SEO/knowledge engineering, connector integration, browser QA, brand continuity, AI-agent architecture, app and web development, AI-builder coding, debugging, market research, code-language work, authorized product study, and cross-agent continuation. Use when a task spans or needs routing among these RADAR workflows.
 ---
 
 # RADAR VIBE QUEUE
@@ -26,6 +26,15 @@ Route the request to the smallest useful specialist skill. This skill provides a
 - Company/market/financial research: `skills/market-intelligence/SKILL.md`
 - Language/runtime semantics, translation, code review: `skills/code-language/SKILL.md`
 - Permitted product/website study and independent equivalents: `skills/authorized-product-study/SKILL.md`
+- Cross-agent handoff ledger for multi-session/multi-agent builds: `skills/agent-continuation/SKILL.md`
+- Notion editorial drafts, review, publication readiness: `skills/radar-editorial-publishing/SKILL.md`
+- Legacy WordPress/InfinityFree imports, media recovery, CMS migration: `skills/radarsite-cms-migration/SKILL.md`
+- Vercel, Cloudflare, DNS, storage, deployment configuration: `skills/radar-infrastructure-ops/SKILL.md`
+- Artist development, releases, metadata, rights, royalties: `skills/music-artist-success/SKILL.md`
+- Technical SEO, structured data, artist identity, knowledge graphs: `skills/radar-seo-knowledge-engineering/SKILL.md`
+- MCP, API, connector, webhook, external-service integrations: `skills/radar-connector-integration/SKILL.md`
+- Browser QA, responsive checks, regression testing, release evidence: `skills/radar-browser-qa-release/SKILL.md`
+- RADAR brand context, project decisions, cross-agent handoffs: `skills/radar-brand-knowledge-continuity/SKILL.md`
 
 ## Cross-cutting rules
 
