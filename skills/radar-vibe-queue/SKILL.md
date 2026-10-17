@@ -26,6 +26,7 @@ Route the request to the smallest useful specialist skill. This skill provides a
 - Company/market/financial research: `skills/market-intelligence/SKILL.md`
 - Language/runtime semantics, translation, code review: `skills/code-language/SKILL.md`
 - Permitted product/website study and independent equivalents: `skills/authorized-product-study/SKILL.md`
+- Cross-agent handoff ledger for multi-session/multi-agent builds: `skills/agent-continuation/SKILL.md`
 
 ## Cross-cutting rules
 
