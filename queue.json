@@ -1,7 +1,7 @@
 {
   "name": "RADAR VIBE QUEUE",
-  "version": "1.2.0",
-  "description": "Portable prompt queue with 13 modular queue workflows and 10 importable skills for RADAR social intelligence, creative products, engineering, research, and debugging.",
+  "version": "1.3.0",
+  "description": "Portable prompt queue with 22 modular queue workflows and 19 importable skills covering RADAR social intelligence, editorial publishing, CMS migration, infrastructure ops, music artist operations, SEO/knowledge engineering, connector integration, browser QA, brand continuity, engineering, research, and debugging.",
   "entrypoint": "SKILL.md",
   "router": "queues/00-router.md",
   "root_skill": "skills/radar-vibe-queue/SKILL.md",
@@ -10,151 +10,133 @@
       "id": "radarmeta-social-intelligence",
       "file": "queues/radarmeta-social-intelligence.md",
       "skill": "skills/radar-meta/SKILL.md",
-      "triggers": [
-        "RADARCharts",
-        "social intelligence",
-        "content audit",
-        "trend radar",
-        "brand audit",
-        "community",
-        "Instagram"
-      ]
+      "triggers": ["RADARCharts", "social intelligence", "content audit", "trend radar", "brand audit", "community", "Instagram"]
     },
     {
       "id": "universal-agent-architect",
       "file": "queues/universal-agent-architect.md",
       "skill": "skills/universal-agent-architect/SKILL.md",
-      "triggers": [
-        "agent design",
-        "tool use",
-        "orchestration",
-        "handoff",
-        "agent evaluation"
-      ]
+      "triggers": ["agent design", "tool use", "orchestration", "handoff", "agent evaluation"]
     },
     {
       "id": "application-engineering",
       "file": "queues/application-engineering.md",
       "skill": "skills/application-engineering/SKILL.md",
-      "triggers": [
-        "application",
-        "product engineering",
-        "API",
-        "database",
-        "mobile app"
-      ]
+      "triggers": ["application", "product engineering", "API", "database", "mobile app"]
     },
     {
       "id": "web-development",
       "file": "queues/web-development.md",
       "skill": "skills/web-development/SKILL.md",
-      "triggers": [
-        "website",
-        "web app",
-        "accessibility",
-        "web security",
-        "deployment"
-      ]
+      "triggers": ["website", "web app", "accessibility", "web security", "deployment"]
     },
     {
       "id": "lovable-vibecode",
       "file": "queues/lovable-vibecode.md",
       "skill": "skills/lovable-vibecode/SKILL.md",
-      "triggers": [
-        "Lovable",
-        "vibecode",
-        "AI builder",
-        "generated app"
-      ]
+      "triggers": ["Lovable", "vibecode", "AI builder", "generated app"]
     },
     {
       "id": "debug-incident",
       "file": "queues/debug-incident.md",
       "skill": "skills/debug-incident/SKILL.md",
-      "triggers": [
-        "bug",
-        "outage",
-        "failure",
-        "regression",
-        "incident"
-      ]
+      "triggers": ["bug", "outage", "failure", "regression", "incident"]
     },
     {
       "id": "market-intelligence",
       "file": "queues/market-intelligence.md",
       "skill": "skills/market-intelligence/SKILL.md",
-      "triggers": [
-        "company research",
-        "filings",
-        "financial analysis",
-        "market data",
-        "portfolio risk"
-      ]
+      "triggers": ["company research", "filings", "financial analysis", "market data", "portfolio risk"]
     },
     {
       "id": "code-language",
       "file": "queues/code-language.md",
       "skill": "skills/code-language/SKILL.md",
-      "triggers": [
-        "code translation",
-        "language semantics",
-        "runtime",
-        "language-specific review"
-      ]
+      "triggers": ["code translation", "language semantics", "runtime", "language-specific review"]
     },
     {
       "id": "authorized-product-study",
       "file": "queues/authorized-product-study.md",
       "skill": "skills/authorized-product-study/SKILL.md",
-      "triggers": [
-        "product study",
-        "competitor analysis",
-        "functional equivalent",
-        "reverse engineering"
-      ]
+      "triggers": ["product study", "competitor analysis", "functional equivalent", "reverse engineering"]
     },
     {
       "id": "radarmeta-monitoring-cycle",
       "file": "queues/radarmeta-monitoring-cycle.md",
       "skill": "skills/radar-meta/SKILL.md",
-      "triggers": [
-        "read-only monitoring",
-        "content performance tracking",
-        "account snapshot",
-        "change log"
-      ]
+      "triggers": ["read-only monitoring", "content performance tracking", "account snapshot", "change log"]
     },
     {
       "id": "radarmeta-following-hygiene",
       "file": "queues/radarmeta-following-hygiene.md",
       "skill": "skills/radar-meta/SKILL.md",
-      "triggers": [
-        "following audit",
-        "relationship review",
-        "cleanup candidates",
-        "network hygiene"
-      ]
+      "triggers": ["following audit", "relationship review", "cleanup candidates", "network hygiene"]
     },
     {
       "id": "radarmeta-intelligence-modes",
       "file": "queues/radarmeta-intelligence-modes.md",
       "skill": "skills/radar-meta/SKILL.md",
-      "triggers": [
-        "daily intelligence brief",
-        "community review",
-        "trend radar",
-        "collaboration screening"
-      ]
+      "triggers": ["daily intelligence brief", "community review", "trend radar", "collaboration screening"]
     },
     {
       "id": "radar-release-portal",
       "file": "queues/radar-release-portal.md",
       "skill": "skills/web-development/SKILL.md",
-      "triggers": [
-        "RADARMusic release portal",
-        "artist release page",
-        "Listen Watch Shorts Press"
-      ]
+      "triggers": ["RADARMusic release portal", "artist release page", "Listen Watch Shorts Press"]
+    },
+    {
+      "id": "radar-editorial-publishing",
+      "file": "queues/radar-editorial-publishing.md",
+      "skill": "skills/radar-editorial-publishing/SKILL.md",
+      "triggers": ["Notion draft", "editorial review", "publication readiness", "editorial workflow", "publish draft"]
+    },
+    {
+      "id": "radarsite-cms-migration",
+      "file": "queues/radarsite-cms-migration.md",
+      "skill": "skills/radarsite-cms-migration/SKILL.md",
+      "triggers": ["WordPress export", "InfinityFree import", "featured images", "media recovery", "CMS migration", "legacy content import"]
+    },
+    {
+      "id": "radar-infrastructure-ops",
+      "file": "queues/radar-infrastructure-ops.md",
+      "skill": "skills/radar-infrastructure-ops/SKILL.md",
+      "triggers": ["Vercel", "Cloudflare", "DNS", "SSL", "cache purge", "environment variables", "deployment configuration"]
+    },
+    {
+      "id": "music-artist-success",
+      "file": "queues/music-artist-success.md",
+      "skill": "skills/music-artist-success/SKILL.md",
+      "triggers": ["music release", "metadata", "ISRC", "distribution", "rights", "royalties", "artist development"]
+    },
+    {
+      "id": "radar-seo-knowledge-engineering",
+      "file": "queues/radar-seo-knowledge-engineering.md",
+      "skill": "skills/radar-seo-knowledge-engineering/SKILL.md",
+      "triggers": ["structured data", "schema.org", "artist identity", "knowledge graph", "canonical references", "technical SEO"]
+    },
+    {
+      "id": "radar-connector-integration",
+      "file": "queues/radar-connector-integration.md",
+      "skill": "skills/radar-connector-integration/SKILL.md",
+      "triggers": ["MCP", "connector", "API integration", "webhook", "OAuth", "external service"]
+    },
+    {
+      "id": "radar-browser-qa-release",
+      "file": "queues/radar-browser-qa-release.md",
+      "skill": "skills/radar-browser-qa-release/SKILL.md",
+      "triggers": ["browser testing", "responsive check", "regression testing", "release verification", "Playwright", "hydration errors"]
+    },
+    {
+      "id": "radar-brand-knowledge-continuity",
+      "file": "queues/radar-brand-knowledge-continuity.md",
+      "skill": "skills/radar-brand-knowledge-continuity/SKILL.md",
+      "triggers": ["brand context", "project decisions", "cross-agent handoff", "continue project", "context recovery"]
+    },
+    {
+      "id": "agent-continuation",
+      "file": "queues/agent-continuation.md",
+      "skill": "skills/agent-continuation/SKILL.md",
+      "triggers": ["HANDOFF", "multi-agent", "resume build", "handoff ledger", "continuation state"]
     }
   ],
   "skills": [
@@ -167,7 +149,16 @@
     "skills/debug-incident/SKILL.md",
     "skills/market-intelligence/SKILL.md",
     "skills/code-language/SKILL.md",
-    "skills/authorized-product-study/SKILL.md"
+    "skills/authorized-product-study/SKILL.md",
+    "skills/agent-continuation/SKILL.md",
+    "skills/radar-editorial-publishing/SKILL.md",
+    "skills/radarsite-cms-migration/SKILL.md",
+    "skills/radar-infrastructure-ops/SKILL.md",
+    "skills/music-artist-success/SKILL.md",
+    "skills/radar-seo-knowledge-engineering/SKILL.md",
+    "skills/radar-connector-integration/SKILL.md",
+    "skills/radar-browser-qa-release/SKILL.md",
+    "skills/radar-brand-knowledge-continuity/SKILL.md"
   ],
   "portability": {
     "format": "Markdown + YAML frontmatter + JSON",

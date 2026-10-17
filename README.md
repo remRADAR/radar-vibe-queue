@@ -1,6 +1,6 @@
 # RADAR VIBE QUEUE
 
-A public, platform-neutral prompt queue for RADAR social intelligence, agent architecture, software engineering, debugging, market research, and product study. The repository contains **10 importable skills**, **13 focused queue prompts**, and the shared routing and safety instructions.
+A public, platform-neutral prompt queue for RADAR social intelligence, editorial publishing, CMS migration, infrastructure operations, music artist success, SEO and knowledge engineering, connector integration, browser QA, brand continuity, agent architecture, software engineering, debugging, market research, and product study. The repository contains **19 importable skills**, **22 focused queue prompts**, and the shared routing and safety instructions.
 
 - Repository: <https://github.com/remRADAR/radar-vibe-queue>
 - Default branch: `main`
@@ -22,10 +22,19 @@ Use the GitHub skill-import workflow and enter the repository and **path relativ
 | Add market intelligence | `remRADAR/radar-vibe-queue` | `skills/market-intelligence` |
 | Add code-language engineering | `remRADAR/radar-vibe-queue` | `skills/code-language` |
 | Add authorized product study | `remRADAR/radar-vibe-queue` | `skills/authorized-product-study` |
+| Add agent continuation / handoff ledger | `remRADAR/radar-vibe-queue` | `skills/agent-continuation` |
+| Add editorial publishing | `remRADAR/radar-vibe-queue` | `skills/radar-editorial-publishing` |
+| Add RADARSite CMS migration | `remRADAR/radar-vibe-queue` | `skills/radarsite-cms-migration` |
+| Add infrastructure ops | `remRADAR/radar-vibe-queue` | `skills/radar-infrastructure-ops` |
+| Add music artist success | `remRADAR/radar-vibe-queue` | `skills/music-artist-success` |
+| Add SEO & knowledge engineering | `remRADAR/radar-vibe-queue` | `skills/radar-seo-knowledge-engineering` |
+| Add connector integration | `remRADAR/radar-vibe-queue` | `skills/radar-connector-integration` |
+| Add browser QA & release | `remRADAR/radar-vibe-queue` | `skills/radar-browser-qa-release` |
+| Add brand knowledge continuity | `remRADAR/radar-vibe-queue` | `skills/radar-brand-knowledge-continuity` |
 
-The repository is public, so no GitHub sign-in should be needed just to read it. For the most reliable skill import, select one directory above; each contains a `SKILL.md`. The router helps choose a workflow, but importing it **does not automatically install all nine specialist skills**. Import the specialists you want available as separate skills.
+The repository is public, so no GitHub sign-in should be needed just to read it. For the most reliable skill import, select one directory above; each contains a `SKILL.md`. The router helps choose a workflow, but importing it **does not automatically install every specialist skill**. Import the specialists you want available as separate skills.
 
-If the importer accepts a full folder URL instead of separate fields, use a link such as <https://github.com/remRADAR/radar-vibe-queue/tree/main/skills/radar-meta>. If it supports importing the repository root, the root [`SKILL.md`](SKILL.md) is also an umbrella entry point. The `skills/radar-meta` directory includes its supporting `references/` files.
+If the importer accepts a full folder URL instead of separate fields, use a link such as <https://github.com/remRADAR/radar-vibe-queue/tree/main/skills/radar-meta>. If it supports importing the repository root, the root [`SKILL.md`](SKILL.md) is also an umbrella entry point. The `skills/radar-meta` directory includes its supporting `references/` files; `skills/agent-continuation` includes `templates/HANDOFF.template.md`.
 
 ### Use the queue prompts in Manus
 
@@ -34,6 +43,7 @@ After importing a skill, give Manus the task, its goal, relevant context, and co
 - “Use the `radar-meta` skill and `queues/radarmeta-monitoring-cycle.md` to prepare a read-only comparison for this period.”
 - “Use `queues/radar-release-portal.md` with the web-development skill to plan this portal change; inspect the project before editing.”
 - “Use `queues/00-router.md` to route this task to the smallest relevant module.”
+- “Use `queues/radar-editorial-publishing.md` to move this Notion draft through review without publishing it.”
 
 A **skill** is reusable agent guidance; a **queue prompt** is a copy-ready recipe for a particular task. Prompt files under `queues/` are Markdown documents, not skill-import directories. The router or skill does not grant connector access, credentials, or permission to take actions.
 
@@ -41,7 +51,7 @@ A **skill** is reusable agent guidance; a **queue prompt** is a copy-ready recip
 
 If the agent can load a GitHub repository as project context, add <https://github.com/remRADAR/radar-vibe-queue> and ask it to read `AGENTS.md`, `QUEUE.md`, and `queues/00-router.md`. Then ask it to load the appropriate specialist skill or queue prompt.
 
-If the agent has a skill-import feature, import one of the `skills/<name>` directories above. Keep the complete directory when copying a skill so bundled references—especially `skills/radar-meta/references/`—remain available. If the agent only accepts prompt text or attachments, paste or attach the relevant Markdown file from `queues/`.
+If the agent has a skill-import feature, import one of the `skills/<name>` directories above. Keep the complete directory when copying a skill so bundled references—especially `skills/radar-meta/references/` and `skills/agent-continuation/templates/`—remain available. If the agent only accepts prompt text or attachments, paste or attach the relevant Markdown file from `queues/`.
 
 You can also clone the public repository:
 
@@ -70,6 +80,15 @@ Or download the repository archive: <https://github.com/remRADAR/radar-vibe-queu
 | Code and language engineering | [`queues/code-language.md`](queues/code-language.md) | [`skills/code-language`](skills/code-language) |
 | Authorized product study | [`queues/authorized-product-study.md`](queues/authorized-product-study.md) | [`skills/authorized-product-study`](skills/authorized-product-study) |
 | RADARMusic release portal build | [`queues/radar-release-portal.md`](queues/radar-release-portal.md) | [`skills/web-development`](skills/web-development) |
+| Editorial publishing | [`queues/radar-editorial-publishing.md`](queues/radar-editorial-publishing.md) | [`skills/radar-editorial-publishing`](skills/radar-editorial-publishing) |
+| RADARSite CMS migration | [`queues/radarsite-cms-migration.md`](queues/radarsite-cms-migration.md) | [`skills/radarsite-cms-migration`](skills/radarsite-cms-migration) |
+| Infrastructure ops | [`queues/radar-infrastructure-ops.md`](queues/radar-infrastructure-ops.md) | [`skills/radar-infrastructure-ops`](skills/radar-infrastructure-ops) |
+| Music artist success | [`queues/music-artist-success.md`](queues/music-artist-success.md) | [`skills/music-artist-success`](skills/music-artist-success) |
+| SEO & knowledge engineering | [`queues/radar-seo-knowledge-engineering.md`](queues/radar-seo-knowledge-engineering.md) | [`skills/radar-seo-knowledge-engineering`](skills/radar-seo-knowledge-engineering) |
+| Connector integration | [`queues/radar-connector-integration.md`](queues/radar-connector-integration.md) | [`skills/radar-connector-integration`](skills/radar-connector-integration) |
+| Browser QA & release | [`queues/radar-browser-qa-release.md`](queues/radar-browser-qa-release.md) | [`skills/radar-browser-qa-release`](skills/radar-browser-qa-release) |
+| Brand knowledge continuity | [`queues/radar-brand-knowledge-continuity.md`](queues/radar-brand-knowledge-continuity.md) | [`skills/radar-brand-knowledge-continuity`](skills/radar-brand-knowledge-continuity) |
+| Agent continuation | [`queues/agent-continuation.md`](queues/agent-continuation.md) | [`skills/agent-continuation`](skills/agent-continuation) |
 
 ## Troubleshooting “repository or path not found”
 
