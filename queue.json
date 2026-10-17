@@ -1,7 +1,7 @@
 {
   "name": "RADAR VIBE QUEUE",
-  "version": "1.2.0",
-  "description": "Portable prompt queue with 13 modular queue workflows and 10 importable skills for RADAR social intelligence, creative products, engineering, research, and debugging.",
+  "version": "1.4.0",
+  "description": "Portable prompt queue with 15 modular queue workflows and 12 importable skills for RADAR social intelligence, creative products, engineering, research, and debugging.",
   "entrypoint": "SKILL.md",
   "router": "queues/00-router.md",
   "root_skill": "skills/radar-vibe-queue/SKILL.md",
@@ -54,6 +54,34 @@
         "accessibility",
         "web security",
         "deployment"
+      ]
+    },
+    {
+      "id": "website-audit-engine",
+      "file": "queues/website-audit-engine.md",
+      "skill": "skills/website-audit-engine/SKILL.md",
+      "triggers": [
+        "website audit",
+        "security review",
+        "accessibility assessment",
+        "SEO audit",
+        "Core Web Vitals",
+        "reliability review",
+        "content integrity"
+      ]
+    },
+    {
+      "id": "full-stack-react-motion-design-engine",
+      "file": "queues/full-stack-react-motion-design-engine.md",
+      "skill": "skills/full-stack-react-motion-design-engine/SKILL.md",
+      "triggers": [
+        "React",
+        "TypeScript UI",
+        "frontend architecture",
+        "motion design",
+        "CSS animation",
+        "transitions",
+        "responsive interface"
       ]
     },
     {
@@ -163,6 +191,8 @@
     "skills/universal-agent-architect/SKILL.md",
     "skills/application-engineering/SKILL.md",
     "skills/web-development/SKILL.md",
+    "skills/website-audit-engine/SKILL.md",
+    "skills/full-stack-react-motion-design-engine/SKILL.md",
     "skills/lovable-vibecode/SKILL.md",
     "skills/debug-incident/SKILL.md",
     "skills/market-intelligence/SKILL.md",

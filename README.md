@@ -1,6 +1,6 @@
 # RADAR VIBE QUEUE
 
-A public, platform-neutral prompt queue for RADAR social intelligence, agent architecture, software engineering, debugging, market research, and product study. The repository contains **10 importable skills**, **13 focused queue prompts**, and the shared routing and safety instructions.
+A public, platform-neutral prompt queue for RADAR social intelligence, agent architecture, software engineering, debugging, market research, and product study. The repository contains **12 importable skills**, **15 focused queue prompts**, and the shared routing and safety instructions.
 
 - Repository: <https://github.com/remRADAR/radar-vibe-queue>
 - Default branch: `main`
@@ -17,6 +17,8 @@ Use the GitHub skill-import workflow and enter the repository and **path relativ
 | Add agent architecture | `remRADAR/radar-vibe-queue` | `skills/universal-agent-architect` |
 | Add application engineering | `remRADAR/radar-vibe-queue` | `skills/application-engineering` |
 | Add web development | `remRADAR/radar-vibe-queue` | `skills/web-development` |
+| Add Website Audit Engine | `remRADAR/radar-vibe-queue` | `skills/website-audit-engine` |
+| Add React and motion design engineering | `remRADAR/radar-vibe-queue` | `skills/full-stack-react-motion-design-engine` |
 | Add Lovable / vibecode | `remRADAR/radar-vibe-queue` | `skills/lovable-vibecode` |
 | Add debugging / incident response | `remRADAR/radar-vibe-queue` | `skills/debug-incident` |
 | Add market intelligence | `remRADAR/radar-vibe-queue` | `skills/market-intelligence` |
@@ -64,6 +66,8 @@ Or download the repository archive: <https://github.com/remRADAR/radar-vibe-queu
 | Universal agent architecture | [`queues/universal-agent-architect.md`](queues/universal-agent-architect.md) | [`skills/universal-agent-architect`](skills/universal-agent-architect) |
 | Application engineering | [`queues/application-engineering.md`](queues/application-engineering.md) | [`skills/application-engineering`](skills/application-engineering) |
 | Web development | [`queues/web-development.md`](queues/web-development.md) | [`skills/web-development`](skills/web-development) |
+| Website Audit Engine | [`queues/website-audit-engine.md`](queues/website-audit-engine.md) | [`skills/website-audit-engine`](skills/website-audit-engine) |
+| React and motion design engineering | [`queues/full-stack-react-motion-design-engine.md`](queues/full-stack-react-motion-design-engine.md) | [`skills/full-stack-react-motion-design-engine`](skills/full-stack-react-motion-design-engine) |
 | Lovable / vibecode | [`queues/lovable-vibecode.md`](queues/lovable-vibecode.md) | [`skills/lovable-vibecode`](skills/lovable-vibecode) |
 | Debugging and incident response | [`queues/debug-incident.md`](queues/debug-incident.md) | [`skills/debug-incident`](skills/debug-incident) |
 | Market intelligence | [`queues/market-intelligence.md`](queues/market-intelligence.md) | [`skills/market-intelligence`](skills/market-intelligence) |
