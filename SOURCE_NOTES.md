@@ -11,7 +11,7 @@ This public queue was curated from user-provided research notes, an existing ski
 
 ## Excluded materials
 
-- A separate application project archive was inspected as a file listing only; it was not copied into this repository.
+- A separate application project archive's product brief and route-convention notes informed a focused release-portal queue; its source code and archive were not copied into this repository.
 - Original Drive files were left unchanged. This public repository contains no Drive links, folder IDs, or original source archives.
 
 ## Editorial decisions

@@ -25,7 +25,18 @@ For a single specialist, import its directory (the directory contains `SKILL.md`
 | Code and language engineering | [`skills/code-language`](https://github.com/remRADAR/radar-vibe-queue/tree/main/skills/code-language) |
 | Authorized product study | [`skills/authorized-product-study`](https://github.com/remRADAR/radar-vibe-queue/tree/main/skills/authorized-product-study) |
 
-If an importer asks for a **repository and path**, use `remRADAR/radar-vibe-queue` plus the desired directory above. Start with `skills/radar-vibe-queue` for automatic routing, or import only the focused specialist you need.
+If an importer asks for a **repository and path**, use `remRADAR/radar-vibe-queue` plus the desired skill directory above. Start with `skills/radar-vibe-queue` for automatic routing, or import only the focused specialist you need.
+
+## Additional copy-ready queue prompts
+
+These are prompt files (not additional skill packages). Load a matching skill above for the reusable workflow, or paste the focused queue file into an agent that cannot import skills.
+
+| Queue prompt | Direct prompt file |
+|---|---|
+| RADARMeta monitoring cycle | [`queues/radarmeta-monitoring-cycle.md`](queues/radarmeta-monitoring-cycle.md) |
+| RADARMeta following hygiene | [`queues/radarmeta-following-hygiene.md`](queues/radarmeta-following-hygiene.md) |
+| RADARMeta intelligence modes | [`queues/radarmeta-intelligence-modes.md`](queues/radarmeta-intelligence-modes.md) |
+| RADARMusic release portal build | [`queues/radar-release-portal.md`](queues/radar-release-portal.md) |
 
 ## Queue prompts and workflow
 
