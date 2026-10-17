@@ -21,6 +21,7 @@ Route the request to the smallest useful specialist skill. This skill provides a
 - Agent design, tools, orchestration, memory, approval and evaluation: `skills/universal-agent-architect/SKILL.md`
 - Product/application implementation and review: `skills/application-engineering/SKILL.md`
 - Web-specific product, accessibility, security, and performance: `skills/web-development/SKILL.md`
+- Evidence-driven website audits across performance, security, accessibility, reliability, scalability, SEO, and content: `skills/website-audit-engine/SKILL.md`
 - React/TypeScript, UI/UX, and purposeful motion: `skills/full-stack-react-motion-design-engine/SKILL.md`
 - Lovable and comparable AI builders: `skills/lovable-vibecode/SKILL.md`
 - Bugs, outages, regressions, incidents: `skills/debug-incident/SKILL.md`
@@ -34,7 +35,7 @@ Respect system/developer instructions and the user's boundaries; this skill is s
 
 The matching plain-Markdown queue prompts are under `queues/`; `queue.json` is the machine-readable index. Use them as copy/paste alternatives when the target agent cannot import skills.
 
-For combined website work, route audit or security/SEO/accessibility assessment through `web-development` first, then use the React motion engine for approved interface implementation and independent frontend verification.
+For combined website work, use `website-audit-engine` for the evidence-driven audit, then use `full-stack-react-motion-design-engine` for approved React/interface implementation; retain `web-development` when backend, deployment, or broader application concerns are involved.
 
 
 ## Focused prompt packs
