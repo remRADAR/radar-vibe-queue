@@ -1,0 +1,1321 @@
+{
+  "name": "RADAR Skill Registry",
+  "registry_version": "1.0.0",
+  "schema": "radar-skill-registry/1",
+  "description": "Machine-readable capability catalog for the RADAR Core Brain. Consumed by skills/radar-intelligent-routing for capability-driven task routing; consumed by RADARMatrix as its capability catalog input.",
+  "policy": {
+    "validation": "tools/validate-registry.mjs must pass in CI before any status change",
+    "routing": "Only status=active skills are selectable. Pending-review and deprecated skills are never routed.",
+    "lifecycle": "See docs/GOVERNANCE.md. New skills register as pending-review and require owner review before activation.",
+    "extensibility": "Adding a skill = registering + validating. The router never hardcodes skill names."
+  },
+  "updated": "2026-11-01",
+  "domains": [
+    {
+      "id": "core-intelligence",
+      "label": "Core Intelligence",
+      "description": "Task interpretation, capability discovery, orchestration policy"
+    },
+    {
+      "id": "task-routing",
+      "label": "Task Routing",
+      "description": "Request-to-skill routing (static fallback maps)"
+    },
+    {
+      "id": "knowledge-management",
+      "label": "Knowledge Management",
+      "description": "Brand context, decisions, cross-agent continuity"
+    },
+    {
+      "id": "social-intelligence",
+      "label": "Social Intelligence",
+      "description": "Account, content, audience, community, trend analysis"
+    },
+    {
+      "id": "research-intelligence",
+      "label": "Research and Intelligence",
+      "description": "Company, market, product research"
+    },
+    {
+      "id": "agent-architecture",
+      "label": "Agent Architecture",
+      "description": "AI agent design, tool contracts, guardrails, evaluation"
+    },
+    {
+      "id": "software-engineering",
+      "label": "Software Engineering",
+      "description": "Application/product engineering across stacks"
+    },
+    {
+      "id": "web-engineering",
+      "label": "Web Engineering",
+      "description": "Web apps, UI/UX, CMS, migration"
+    },
+    {
+      "id": "ai-builder-engineering",
+      "label": "AI-Builder Engineering",
+      "description": "Prompt-driven/AI coding tools (Lovable etc.)"
+    },
+    {
+      "id": "incident-response",
+      "label": "Incident Response",
+      "description": "Bugs, outages, regressions, incidents"
+    },
+    {
+      "id": "quality-assurance",
+      "label": "Quality Assurance",
+      "description": "Audits, QA, release verification"
+    },
+    {
+      "id": "devops-infrastructure",
+      "label": "DevOps and Infrastructure",
+      "description": "Hosting, DNS, deployment, operations"
+    },
+    {
+      "id": "editorial-journalism",
+      "label": "Editorial and Journalism",
+      "description": "Editorial pipeline, publishing"
+    },
+    {
+      "id": "artist-development",
+      "label": "Artist Development",
+      "description": "Release operations, metadata, rights, artist growth"
+    },
+    {
+      "id": "music-marketing",
+      "label": "Music Marketing",
+      "description": "Growth, promotion, playlisting, campaigns"
+    },
+    {
+      "id": "seo-engineering",
+      "label": "SEO and Knowledge Engineering",
+      "description": "Structured data, entity identity, discoverability"
+    },
+    {
+      "id": "security-governance",
+      "label": "Security and Governance",
+      "description": "Security review, skill governance, secrets discipline"
+    }
+  ],
+  "skills": [
+    {
+      "id": "radar-intelligent-routing",
+      "name": "radar-intelligent-routing",
+      "version": "1.0.0",
+      "status": "active",
+      "domain": "core-intelligence",
+      "secondary_domains": [
+        "task-routing",
+        "agent-architecture"
+      ],
+      "summary": "RADAR Core Brain router: task interpretation, knowledge context retrieval, capability discovery via this registry, smallest-effective skill selection, structured prompt engineering, orchestration, verification, and governed continuity.",
+      "responsibilities": [
+        "Interpret task intent and success criteria",
+        "Retrieve canonical context from knowledge/",
+        "Discover and verify available skills from the registry",
+        "Select the smallest effective skill combination",
+        "Engineer execution-ready specialist prompts",
+        "Orchestrate single/parallel/sequential execution",
+        "Verify outputs against skill verification criteria",
+        "Capture durable continuity under governance"
+      ],
+      "triggers": [
+        "intelligent routing",
+        "capability discovery",
+        "skill discovery",
+        "select skills",
+        "orchestrate skills",
+        "skill registry",
+        "task classification"
+      ],
+      "required_inputs": [
+        "User request",
+        "Registry file (registry/skills.json)",
+        "Knowledge base (knowledge/) when accessible"
+      ],
+      "expected_outputs": [
+        "Route decision with rationale",
+        "Structured specialist prompt(s)",
+        "Verification result",
+        "Continuity capture"
+      ],
+      "dependencies": {
+        "skills": [
+          "radar-vibe-queue"
+        ],
+        "files": [
+          "registry/skills.json",
+          "framework/prompt-engineering.md"
+        ]
+      },
+      "related_skills": [
+        "radar-vibe-queue",
+        "universal-agent-architect",
+        "agent-continuation"
+      ],
+      "tools": "None assumed. Degrades to the static fallback map when files are unreadable.",
+      "limitations": [
+        "Registry must be readable at run time",
+        "Does not execute specialist work itself",
+        "Grants no permissions or connector access"
+      ],
+      "verification": [
+        "Selected skills exist and are active",
+        "Prompts contain objective/context/responsibilities/boundaries/verification",
+        "Output satisfies the original objective or the failure is routed/escalated"
+      ],
+      "availability": {
+        "path": "skills/radar-intelligent-routing/SKILL.md",
+        "branch": "main"
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "RADAR Core Brain directive",
+        "provenance": "Authored new; architecture per docs/ARCHITECTURE.md"
+      }
+    },
+    {
+      "id": "radar-vibe-queue",
+      "name": "radar-vibe-queue",
+      "version": "1.3.0",
+      "status": "active",
+      "domain": "task-routing",
+      "secondary_domains": [
+        "core-intelligence"
+      ],
+      "summary": "Legacy static task router and prompt queue: maps request types to specialist skills by name. Fallback when registry-driven routing is unavailable.",
+      "responsibilities": [
+        "Route a request to the smallest useful specialist skill via the static specialist map",
+        "Serve as umbrella entry point for whole-repo import"
+      ],
+      "triggers": [
+        "task routing",
+        "route a task",
+        "prompt queue",
+        "vibe queue"
+      ],
+      "required_inputs": [
+        "User request"
+      ],
+      "expected_outputs": [
+        "Specialist skill selection",
+        "Queued execution per QUEUE.md workflow"
+      ],
+      "dependencies": {
+        "skills": [],
+        "files": [
+          "QUEUE.md",
+          "queue.json",
+          "AGENTS.md"
+        ]
+      },
+      "related_skills": [
+        "radar-intelligent-routing",
+        "agent-continuation"
+      ],
+      "tools": "None assumed.",
+      "limitations": [
+        "Name-driven, not capability-driven",
+        "Requires manual maintenance of the specialist map",
+        "Superseded by radar-intelligent-routing when the registry is available"
+      ],
+      "verification": [
+        "Selected specialist exists and fits the request",
+        "Evidence/limitation reporting per QUEUE.md"
+      ],
+      "availability": {
+        "path": "skills/radar-vibe-queue/SKILL.md",
+        "branch": "main"
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "pre-existing skill on main",
+        "provenance": "Original router; preserved as documented fallback"
+      }
+    },
+    {
+      "id": "radar-meta",
+      "name": "radar-meta",
+      "version": "1.2.0",
+      "status": "active",
+      "domain": "social-intelligence",
+      "secondary_domains": [
+        "music-marketing",
+        "research-intelligence"
+      ],
+      "summary": "Social intelligence and account-health analysis for RADARCharts by REM: audits, content/audience analysis, community and collaboration intelligence, trends, brand reviews, growth recommendations. Analysis-only by default.",
+      "responsibilities": [
+        "Account and content audits",
+        "Audience and community analysis",
+        "Trend discovery and collaboration screening",
+        "Brand/reputation review and growth briefs"
+      ],
+      "triggers": [
+        "social intelligence",
+        "account audit",
+        "content audit",
+        "audience analysis",
+        "community review",
+        "trend discovery",
+        "brand audit",
+        "growth recommendations",
+        "Instagram",
+        "following hygiene",
+        "monitoring cycle"
+      ],
+      "required_inputs": [
+        "Authorized account/scope",
+        "Data period",
+        "Analysis objective"
+      ],
+      "expected_outputs": [
+        "Structured intelligence brief with evidence, priorities, and approval-gated actions"
+      ],
+      "dependencies": {
+        "skills": [],
+        "files": [
+          "skills/radar-meta/references/monitoring-workflow.md",
+          "skills/radar-meta/references/following-hygiene.md",
+          "skills/radar-meta/references/intelligence-modes.md"
+        ]
+      },
+      "related_skills": [
+        "radar-intelligent-routing",
+        "radar-editorial-publishing"
+      ],
+      "tools": "Platform-dependent social connectors; verify availability and authorization.",
+      "limitations": [
+        "No consequential account changes without explicit authorization",
+        "Missing evidence is UNKNOWN, never zero"
+      ],
+      "verification": [
+        "Findings cite observed sources with period",
+        "Action items carry evidence, priority, risk, approval status"
+      ],
+      "availability": {
+        "path": "skills/radar-meta/SKILL.md",
+        "branch": "main"
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "pre-existing skill on main",
+        "provenance": "Curated from original RADARMeta package"
+      }
+    },
+    {
+      "id": "universal-agent-architect",
+      "name": "universal-agent-architect",
+      "version": "1.2.0",
+      "status": "active",
+      "domain": "agent-architecture",
+      "secondary_domains": [
+        "software-engineering"
+      ],
+      "summary": "Design, build, evaluate, deploy, and maintain reliable AI agents and tool-using workflows: goals, tool contracts, memory, orchestration, handoffs, guardrails, observability, evaluation, failure recovery.",
+      "responsibilities": [
+        "Agent/system contracts and architecture",
+        "Tool schemas, least-privilege, idempotency",
+        "Guardrails and human-approval boundaries",
+        "Evaluation and failure recovery design"
+      ],
+      "triggers": [
+        "agent design",
+        "agent architecture",
+        "tool contracts",
+        "agent orchestration",
+        "agent memory",
+        "guardrails",
+        "agent evaluation",
+        "multi-agent handoff design",
+        "agent run loop"
+      ],
+      "required_inputs": [
+        "Goal, users, boundaries, success criteria",
+        "Available tools/environment"
+      ],
+      "expected_outputs": [
+        "Architecture/contract document, risks, test evidence, assumptions"
+      ],
+      "dependencies": {
+        "skills": [],
+        "files": []
+      },
+      "related_skills": [
+        "radar-intelligent-routing",
+        "agent-continuation",
+        "lovable-vibecode"
+      ],
+      "tools": "None assumed; verify provider capabilities.",
+      "limitations": [
+        "Design skill; execution goes to implementation skills"
+      ],
+      "verification": [
+        "Contracts specify normal, boundary, tool-error, and recovery paths"
+      ],
+      "availability": {
+        "path": "skills/universal-agent-architect/SKILL.md",
+        "branch": "main"
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "pre-existing skill on main",
+        "provenance": "Generalized from research notes"
+      }
+    },
+    {
+      "id": "application-engineering",
+      "name": "application-engineering",
+      "version": "1.2.0",
+      "status": "active",
+      "domain": "software-engineering",
+      "secondary_domains": [],
+      "summary": "Principal-level product and application engineering across web, mobile, desktop, APIs, databases, and services: requirements, architecture, data models, implementation, integration, testing, security, performance, deployment prep, code review.",
+      "responsibilities": [
+        "Requirements to acceptance criteria",
+        "Architecture and data model work",
+        "Implementation and integration",
+        "Security/performance/testing review"
+      ],
+      "triggers": [
+        "application engineering",
+        "application architecture",
+        "data model",
+        "database schema",
+        "API design",
+        "product engineering",
+        "requirements analysis",
+        "service integration"
+      ],
+      "required_inputs": [
+        "Repository/product state",
+        "Requested outcome and constraints"
+      ],
+      "expected_outputs": [
+        "Implementation with verification evidence, or review with findings"
+      ],
+      "dependencies": {
+        "skills": [],
+        "files": []
+      },
+      "related_skills": [
+        "web-development",
+        "code-language",
+        "debug-incident",
+        "lovable-vibecode"
+      ],
+      "tools": "Platform-dependent; verify before use.",
+      "limitations": [
+        "No production changes/deployment without authorization"
+      ],
+      "verification": [
+        "Targeted tests + lint/type/build checks actually run",
+        "Diff reviewed for regression and scope"
+      ],
+      "availability": {
+        "path": "skills/application-engineering/SKILL.md",
+        "branch": "main"
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "pre-existing skill on main",
+        "provenance": "Generalized from research notes"
+      }
+    },
+    {
+      "id": "web-development",
+      "name": "web-development",
+      "version": "1.2.0",
+      "status": "active",
+      "domain": "web-engineering",
+      "secondary_domains": [
+        "security-governance"
+      ],
+      "summary": "Build, modify, debug, review, secure, test, optimize, and prepare web applications for deployment: UX, frontend/backend flows, APIs, auth, accessibility, security, performance, SEO, CI/CD.",
+      "responsibilities": [
+        "Web implementation and review",
+        "Accessibility (WCAG 2.2) and web security verification",
+        "Performance and deployment preparation"
+      ],
+      "triggers": [
+        "web app",
+        "website",
+        "web development",
+        "accessibility",
+        "web security",
+        "frontend",
+        "backend",
+        "deployment",
+        "responsive layout"
+      ],
+      "required_inputs": [
+        "Project/stack state",
+        "Goal and acceptance criteria"
+      ],
+      "expected_outputs": [
+        "Scoped change or review with exact checks run"
+      ],
+      "dependencies": {
+        "skills": [],
+        "files": []
+      },
+      "related_skills": [
+        "application-engineering",
+        "debug-incident",
+        "radar-infrastructure-ops",
+        "full-stack-react-motion-design-engine"
+      ],
+      "tools": "Platform-dependent; verify before use.",
+      "limitations": [
+        "No production domains/data/deployment changes without authorization"
+      ],
+      "verification": [
+        "Loading/empty/error/success states tested where applicable",
+        "Security/accessibility checks cited"
+      ],
+      "availability": {
+        "path": "skills/web-development/SKILL.md",
+        "branch": "main"
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "pre-existing skill on main",
+        "provenance": "Generalized from research notes"
+      }
+    },
+    {
+      "id": "lovable-vibecode",
+      "name": "lovable-vibecode",
+      "version": "1.2.0",
+      "status": "active",
+      "domain": "ai-builder-engineering",
+      "secondary_domains": [
+        "software-engineering"
+      ],
+      "summary": "Engineer applications built with Lovable or comparable prompt-driven/AI coding tools: specifying, planning, generating, inspecting, testing, debugging, refactoring, safely modifying AI-generated apps and integrations.",
+      "responsibilities": [
+        "AI-generated code inspection before trust",
+        "Builder-prompt engineering and diff review",
+        "Auth/tenant/security checks on generated apps"
+      ],
+      "triggers": [
+        "Lovable",
+        "vibecode",
+        "vibecoding",
+        "AI builder",
+        "AI-generated app",
+        "generated code review"
+      ],
+      "required_inputs": [
+        "App/builder state",
+        "Requested outcome"
+      ],
+      "expected_outputs": [
+        "Builder change + reviewed diff + verification evidence"
+      ],
+      "dependencies": {
+        "skills": [],
+        "files": []
+      },
+      "related_skills": [
+        "web-development",
+        "application-engineering",
+        "debug-incident"
+      ],
+      "tools": "Platform-dependent; verify builder/tool access.",
+      "limitations": [
+        "No deploy/publish/production-data changes without authority"
+      ],
+      "verification": [
+        "Actual user flows and boundaries tested; not just preview compile"
+      ],
+      "availability": {
+        "path": "skills/lovable-vibecode/SKILL.md",
+        "branch": "main"
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "pre-existing skill on main",
+        "provenance": "Generalized from research notes"
+      }
+    },
+    {
+      "id": "debug-incident",
+      "name": "debug-incident",
+      "version": "1.2.0",
+      "status": "active",
+      "domain": "incident-response",
+      "secondary_domains": [
+        "software-engineering"
+      ],
+      "summary": "Reproduce, localize, diagnose, patch, regression-test, and verify bugs and incidents across frontend, backend, database, APIs, auth, concurrency, build, deployment, dependencies, configuration, performance, security.",
+      "responsibilities": [
+        "Impact assessment and safe restoration",
+        "Evidence-based root-cause isolation",
+        "Smallest safe repair with rollback",
+        "Regression checks and incident documentation"
+      ],
+      "triggers": [
+        "bug",
+        "debugging",
+        "outage",
+        "incident",
+        "regression",
+        "failure",
+        "root cause"
+      ],
+      "required_inputs": [
+        "Exact error/symptom",
+        "Environment",
+        "Recent changes"
+      ],
+      "expected_outputs": [
+        "Cause (or unresolved hypotheses), fix, evidence, residual risk"
+      ],
+      "dependencies": {
+        "skills": [],
+        "files": []
+      },
+      "related_skills": [
+        "web-development",
+        "application-engineering",
+        "radar-browser-qa-release"
+      ],
+      "tools": "Platform-dependent; verify before use.",
+      "limitations": [
+        "Never claim root cause without evidence",
+        "No error suppression or public stack traces"
+      ],
+      "verification": [
+        "Regression check reproduces then passes post-fix",
+        "Relevant tests re-run"
+      ],
+      "availability": {
+        "path": "skills/debug-incident/SKILL.md",
+        "branch": "main"
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "pre-existing skill on main",
+        "provenance": "Generalized from research notes"
+      }
+    },
+    {
+      "id": "market-intelligence",
+      "name": "market-intelligence",
+      "version": "1.2.0",
+      "status": "active",
+      "domain": "research-intelligence",
+      "secondary_domains": [],
+      "summary": "Evidence-based company, securities, industry, and market research: financial statements, regulatory filings, market data, valuation context, portfolio risk, broker integrations.",
+      "responsibilities": [
+        "Primary-source research with citations and dates",
+        "Period/unit discipline and figure reconciliation",
+        "Risk analysis over guarantees"
+      ],
+      "triggers": [
+        "company research",
+        "market data",
+        "financial analysis",
+        "regulatory filings",
+        "portfolio risk",
+        "securities",
+        "valuation"
+      ],
+      "required_inputs": [
+        "Entity/security to analyze",
+        "Analysis period"
+      ],
+      "expected_outputs": [
+        "Thesis with evidence, counterpoints, sources, limitations"
+      ],
+      "dependencies": {
+        "skills": [],
+        "files": []
+      },
+      "related_skills": [
+        "authorized-product-study",
+        "radar-intelligent-routing"
+      ],
+      "tools": "Platform-dependent research tools; verify availability.",
+      "limitations": [
+        "No investment advice or guarantees",
+        "No trades/broker actions without exact authorization"
+      ],
+      "verification": [
+        "Decision-relevant facts cite primary filings with dates",
+        "Market data timestamped"
+      ],
+      "availability": {
+        "path": "skills/market-intelligence/SKILL.md",
+        "branch": "main"
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "pre-existing skill on main",
+        "provenance": "Generalized from research notes"
+      }
+    },
+    {
+      "id": "code-language",
+      "name": "code-language",
+      "version": "1.2.0",
+      "status": "active",
+      "domain": "software-engineering",
+      "secondary_domains": [],
+      "summary": "Programming-language and runtime semantics, behavioral code translation, and language-specific implementation, review, debugging, performance, security, and migration work.",
+      "responsibilities": [
+        "Semantic analysis before edits",
+        "Behavior-preserving translation/refactoring",
+        "Version-specific correctness and testing"
+      ],
+      "triggers": [
+        "language semantics",
+        "code translation",
+        "runtime behavior",
+        "language migration",
+        "language-specific review",
+        "idoms",
+        "language version compatibility"
+      ],
+      "required_inputs": [
+        "Language/version/runtime",
+        "Code or spec",
+        "Target behavior"
+      ],
+      "expected_outputs": [
+        "Change with semantic-difference explanation and tests"
+      ],
+      "dependencies": {
+        "skills": [],
+        "files": []
+      },
+      "related_skills": [
+        "application-engineering",
+        "web-development"
+      ],
+      "tools": "Platform-dependent; verify before use.",
+      "limitations": [
+        "Preserves repo conventions unless migration explicitly requested"
+      ],
+      "verification": [
+        "Normal/boundary/error/concurrency cases tested",
+        "Formatters, linters, type checks run where available"
+      ],
+      "availability": {
+        "path": "skills/code-language/SKILL.md",
+        "branch": "main"
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "pre-existing skill on main",
+        "provenance": "Generalized from research notes"
+      }
+    },
+    {
+      "id": "authorized-product-study",
+      "name": "authorized-product-study",
+      "version": "1.2.0",
+      "status": "active",
+      "domain": "research-intelligence",
+      "secondary_domains": [
+        "web-engineering"
+      ],
+      "summary": "Analyze a website, app, or digital product for a user-owned project, authorized audit, or independent functional equivalent: public-flow mapping, usability comparison, feature discovery, permitted reverse engineering.",
+      "responsibilities": [
+        "Ownership/permission establishment",
+        "Feature and flow mapping with evidence",
+        "Independent-equivalent specification"
+      ],
+      "triggers": [
+        "product study",
+        "competitor analysis",
+        "functional equivalent",
+        "reverse engineering",
+        "usability comparison",
+        "feature discovery"
+      ],
+      "required_inputs": [
+        "Target product/site",
+        "Authorization basis",
+        "Objective"
+      ],
+      "expected_outputs": [
+        "Feature/flow map, evidence, confidence, risks, scoped plan"
+      ],
+      "dependencies": {
+        "skills": [],
+        "files": []
+      },
+      "related_skills": [
+        "web-development",
+        "application-engineering",
+        "market-intelligence"
+      ],
+      "tools": "None assumed; public observation unless authorized.",
+      "limitations": [
+        "No bypassing auth/paywalls/controls; no protected-content copying"
+      ],
+      "verification": [
+        "Findings cite observable evidence; hidden architecture marked as hypothesis"
+      ],
+      "availability": {
+        "path": "skills/authorized-product-study/SKILL.md",
+        "branch": "main"
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "pre-existing skill on main",
+        "provenance": "Generalized from research notes"
+      }
+    },
+    {
+      "id": "agent-continuation",
+      "name": "agent-continuation",
+      "version": "1.2.0",
+      "status": "active",
+      "domain": "knowledge-management",
+      "secondary_domains": [
+        "task-routing"
+      ],
+      "summary": "Cross-agent development continuity protocol: the HANDOFF.md ledger for multi-agent/multi-session builds. Load at the START of any coding/build task another agent may have started, and at the END before handing off.",
+      "responsibilities": [
+        "Read/verify continuation state before work",
+        "Maintain the append-only HANDOFF.md ledger",
+        "Exit with verified state and a single next action"
+      ],
+      "triggers": [
+        "cross-agent handoff",
+        "handoff ledger",
+        "HANDOFF",
+        "multi-agent continuity",
+        "resume work from another agent",
+        "continuity protocol"
+      ],
+      "required_inputs": [
+        "Project/workspace",
+        "HANDOFF.md if present"
+      ],
+      "expected_outputs": [
+        "Updated ledger consistent with the repo filesystem"
+      ],
+      "dependencies": {
+        "skills": [],
+        "files": [
+          "skills/agent-continuation/templates/HANDOFF.template.md"
+        ]
+      },
+      "related_skills": [
+        "radar-brand-knowledge-continuity",
+        "radar-intelligent-routing"
+      ],
+      "tools": "None assumed.",
+      "limitations": [
+        "Ledger is memory, not truth: filesystem wins",
+        "Placeholders stay placeholders"
+      ],
+      "verification": [
+        "A fresh agent can state current state, decisions, and next step from the ledger alone"
+      ],
+      "availability": {
+        "path": "skills/agent-continuation/SKILL.md",
+        "branch": "main"
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "pre-existing skill on main",
+        "provenance": "Was missing from queue.json registration on main; registered here (fix)"
+      }
+    },
+    {
+      "id": "radar-editorial-publishing",
+      "name": "radar-editorial-publishing",
+      "version": "1.0.0",
+      "status": "pending-review",
+      "domain": "editorial-journalism",
+      "secondary_domains": [
+        "music-marketing"
+      ],
+      "summary": "Editorial workflow and publication-readiness for RADARCharts content from Notion drafts through review to publish; publishing requires explicit authorization.",
+      "triggers": [
+        "editorial review",
+        "publication readiness",
+        "Notion draft",
+        "editorial pipeline",
+        "draft triage"
+      ],
+      "required_inputs": [
+        "See SKILL.md on the proposing branch"
+      ],
+      "expected_outputs": [
+        "See SKILL.md on the proposing branch"
+      ],
+      "dependencies": {
+        "skills": [],
+        "files": []
+      },
+      "related_skills": [
+        "radar-meta",
+        "radar-seo-knowledge-engineering"
+      ],
+      "tools": "Platform-dependent; verify before use.",
+      "limitations": [
+        "Not selectable by the router until activated per docs/GOVERNANCE.md"
+      ],
+      "verification": [
+        "See SKILL.md verification section"
+      ],
+      "availability": {
+        "path": "skills/radar-editorial-publishing/SKILL.md",
+        "branch": "feat/radar-operating-skills-expansion",
+        "pr": 1
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "PR #1 description",
+        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation"
+      }
+    },
+    {
+      "id": "radarsite-cms-migration",
+      "name": "radarsite-cms-migration",
+      "version": "1.0.0",
+      "status": "pending-review",
+      "domain": "web-engineering",
+      "secondary_domains": [
+        "editorial-journalism"
+      ],
+      "summary": "Migration of legacy WordPress/InfinityFree content into the RADARSite CMS: media recovery, featured images, taxonomy mapping, reconciliation. Dry-run by default.",
+      "triggers": [
+        "WordPress migration",
+        "legacy import",
+        "media URL recovery",
+        "CMS data migration",
+        "content reconciliation"
+      ],
+      "required_inputs": [
+        "See SKILL.md on the proposing branch"
+      ],
+      "expected_outputs": [
+        "See SKILL.md on the proposing branch"
+      ],
+      "dependencies": {
+        "skills": [],
+        "files": []
+      },
+      "related_skills": [
+        "web-development",
+        "radar-editorial-publishing"
+      ],
+      "tools": "Platform-dependent; verify before use.",
+      "limitations": [
+        "Not selectable by the router until activated per docs/GOVERNANCE.md"
+      ],
+      "verification": [
+        "See SKILL.md verification section"
+      ],
+      "availability": {
+        "path": "skills/radarsite-cms-migration/SKILL.md",
+        "branch": "feat/radar-operating-skills-expansion",
+        "pr": 1
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "PR #1 description",
+        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation"
+      }
+    },
+    {
+      "id": "radar-infrastructure-ops",
+      "name": "radar-infrastructure-ops",
+      "version": "1.0.0",
+      "status": "pending-review",
+      "domain": "devops-infrastructure",
+      "secondary_domains": [
+        "security-governance"
+      ],
+      "summary": "Production infrastructure operations for RADAR properties across Vercel, Cloudflare, DNS, storage, and deployment configuration. Read-and-plan by default.",
+      "triggers": [
+        "Vercel",
+        "Cloudflare",
+        "DNS records",
+        "deployment configuration",
+        "environment variables",
+        "infrastructure diagnosis"
+      ],
+      "required_inputs": [
+        "See SKILL.md on the proposing branch"
+      ],
+      "expected_outputs": [
+        "See SKILL.md on the proposing branch"
+      ],
+      "dependencies": {
+        "skills": [],
+        "files": []
+      },
+      "related_skills": [
+        "web-development",
+        "debug-incident"
+      ],
+      "tools": "Platform-dependent; verify before use.",
+      "limitations": [
+        "Not selectable by the router until activated per docs/GOVERNANCE.md"
+      ],
+      "verification": [
+        "See SKILL.md verification section"
+      ],
+      "availability": {
+        "path": "skills/radar-infrastructure-ops/SKILL.md",
+        "branch": "feat/radar-operating-skills-expansion",
+        "pr": 1
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "PR #1 description",
+        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation"
+      }
+    },
+    {
+      "id": "music-artist-success",
+      "name": "music-artist-success",
+      "version": "1.0.0",
+      "status": "pending-review",
+      "domain": "artist-development",
+      "secondary_domains": [],
+      "summary": "Artist development and music release operations for RADARCharts artists: release readiness, metadata, distribution, rights, royalties.",
+      "triggers": [
+        "release readiness",
+        "release metadata",
+        "ISRC",
+        "distribution planning",
+        "rights and splits",
+        "artist development plan"
+      ],
+      "required_inputs": [
+        "See SKILL.md on the proposing branch"
+      ],
+      "expected_outputs": [
+        "See SKILL.md on the proposing branch"
+      ],
+      "dependencies": {
+        "skills": [],
+        "files": []
+      },
+      "related_skills": [
+        "radar-meta",
+        "radar-editorial-publishing"
+      ],
+      "tools": "Platform-dependent; verify before use.",
+      "limitations": [
+        "Not selectable by the router until activated per docs/GOVERNANCE.md"
+      ],
+      "verification": [
+        "See SKILL.md verification section"
+      ],
+      "availability": {
+        "path": "skills/music-artist-success/SKILL.md",
+        "branch": "feat/radar-operating-skills-expansion",
+        "pr": 1
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "PR #1 description",
+        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation"
+      }
+    },
+    {
+      "id": "radar-seo-knowledge-engineering",
+      "name": "radar-seo-knowledge-engineering",
+      "version": "1.0.0",
+      "status": "pending-review",
+      "domain": "seo-engineering",
+      "secondary_domains": [
+        "web-engineering"
+      ],
+      "summary": "Technical SEO and music knowledge-graph engineering for RADARCharts: structured data, artist identity, canonical references, authoritative entity coverage.",
+      "triggers": [
+        "structured data",
+        "schema.org",
+        "artist identity",
+        "knowledge graph",
+        "rich results",
+        "metadata consistency"
+      ],
+      "required_inputs": [
+        "See SKILL.md on the proposing branch"
+      ],
+      "expected_outputs": [
+        "See SKILL.md on the proposing branch"
+      ],
+      "dependencies": {
+        "skills": [],
+        "files": []
+      },
+      "related_skills": [
+        "web-development",
+        "radar-editorial-publishing"
+      ],
+      "tools": "Platform-dependent; verify before use.",
+      "limitations": [
+        "Not selectable by the router until activated per docs/GOVERNANCE.md"
+      ],
+      "verification": [
+        "See SKILL.md verification section"
+      ],
+      "availability": {
+        "path": "skills/radar-seo-knowledge-engineering/SKILL.md",
+        "branch": "feat/radar-operating-skills-expansion",
+        "pr": 1
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "PR #1 description",
+        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation"
+      }
+    },
+    {
+      "id": "radar-connector-integration",
+      "name": "radar-connector-integration",
+      "version": "1.0.0",
+      "status": "pending-review",
+      "domain": "software-engineering",
+      "secondary_domains": [
+        "agent-architecture"
+      ],
+      "summary": "Integration engineering for RADAR systems: MCP servers, APIs, connectors, webhooks, external services. Design/implementation by default; production credentials require authorization.",
+      "triggers": [
+        "MCP connector",
+        "API integration",
+        "webhook verification",
+        "OAuth flow",
+        "external service wiring",
+        "sync job"
+      ],
+      "required_inputs": [
+        "See SKILL.md on the proposing branch"
+      ],
+      "expected_outputs": [
+        "See SKILL.md on the proposing branch"
+      ],
+      "dependencies": {
+        "skills": [],
+        "files": []
+      },
+      "related_skills": [
+        "universal-agent-architect",
+        "application-engineering"
+      ],
+      "tools": "Platform-dependent; verify before use.",
+      "limitations": [
+        "Not selectable by the router until activated per docs/GOVERNANCE.md"
+      ],
+      "verification": [
+        "See SKILL.md verification section"
+      ],
+      "availability": {
+        "path": "skills/radar-connector-integration/SKILL.md",
+        "branch": "feat/radar-operating-skills-expansion",
+        "pr": 1
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "PR #1 description",
+        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation"
+      }
+    },
+    {
+      "id": "radar-browser-qa-release",
+      "name": "radar-browser-qa-release",
+      "version": "1.0.0",
+      "status": "pending-review",
+      "domain": "quality-assurance",
+      "secondary_domains": [],
+      "summary": "Browser-based QA and release verification for RADAR web properties: browser testing, responsive checks, regression evidence, release sign-off.",
+      "triggers": [
+        "browser QA",
+        "release verification",
+        "regression testing",
+        "cross-device testing",
+        "pre-release sign-off",
+        "console errors"
+      ],
+      "required_inputs": [
+        "See SKILL.md on the proposing branch"
+      ],
+      "expected_outputs": [
+        "See SKILL.md on the proposing branch"
+      ],
+      "dependencies": {
+        "skills": [],
+        "files": []
+      },
+      "related_skills": [
+        "web-development",
+        "debug-incident"
+      ],
+      "tools": "Platform-dependent; verify before use.",
+      "limitations": [
+        "Not selectable by the router until activated per docs/GOVERNANCE.md"
+      ],
+      "verification": [
+        "See SKILL.md verification section"
+      ],
+      "availability": {
+        "path": "skills/radar-browser-qa-release/SKILL.md",
+        "branch": "feat/radar-operating-skills-expansion",
+        "pr": 1
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "PR #1 description",
+        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation"
+      }
+    },
+    {
+      "id": "radar-brand-knowledge-continuity",
+      "name": "radar-brand-knowledge-continuity",
+      "version": "1.0.0",
+      "status": "pending-review",
+      "domain": "knowledge-management",
+      "secondary_domains": [],
+      "summary": "RADAR brand context, project decisions, and cross-agent continuity: strategy, conventions, decisions, handoff state across agents and sessions.",
+      "triggers": [
+        "brand context brief",
+        "decision records",
+        "project kickoff context",
+        "continuity recovery",
+        "cross-agent handoff"
+      ],
+      "required_inputs": [
+        "See SKILL.md on the proposing branch"
+      ],
+      "expected_outputs": [
+        "See SKILL.md on the proposing branch"
+      ],
+      "dependencies": {
+        "skills": [],
+        "files": []
+      },
+      "related_skills": [
+        "agent-continuation"
+      ],
+      "tools": "Platform-dependent; verify before use.",
+      "limitations": [
+        "Not selectable by the router until activated per docs/GOVERNANCE.md"
+      ],
+      "verification": [
+        "See SKILL.md verification section"
+      ],
+      "availability": {
+        "path": "skills/radar-brand-knowledge-continuity/SKILL.md",
+        "branch": "feat/radar-operating-skills-expansion",
+        "pr": 1
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "PR #1 description",
+        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation"
+      }
+    },
+    {
+      "id": "website-audit-engine",
+      "name": "website-audit-engine",
+      "version": "1.0.0",
+      "status": "pending-review",
+      "domain": "quality-assurance",
+      "secondary_domains": [
+        "security-governance",
+        "web-engineering"
+      ],
+      "summary": "Evidence-driven website audits across performance, security, WCAG accessibility, reliability, scalability, maintainability, SEO, content integrity.",
+      "triggers": [
+        "website audit",
+        "accessibility assessment",
+        "security review",
+        "SEO check",
+        "readiness review",
+        "structured audit report"
+      ],
+      "required_inputs": [
+        "See SKILL.md on the proposing branch"
+      ],
+      "expected_outputs": [
+        "See SKILL.md on the proposing branch"
+      ],
+      "dependencies": {
+        "skills": [],
+        "files": []
+      },
+      "related_skills": [
+        "web-development",
+        "radar-browser-qa-release"
+      ],
+      "tools": "Platform-dependent; verify before use.",
+      "limitations": [
+        "Not selectable by the router until activated per docs/GOVERNANCE.md"
+      ],
+      "verification": [
+        "See SKILL.md verification section"
+      ],
+      "availability": {
+        "path": "skills/website-audit-engine/SKILL.md",
+        "branch": "feat/website-audit-react-motion-engines",
+        "pr": 2
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "PR #2 description",
+        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation"
+      }
+    },
+    {
+      "id": "full-stack-react-motion-design-engine",
+      "name": "full-stack-react-motion-design-engine",
+      "version": "1.0.0",
+      "status": "pending-review",
+      "domain": "web-engineering",
+      "secondary_domains": [
+        "quality-assurance"
+      ],
+      "summary": "React/TypeScript interface engineering with disciplined UI/UX, design-system, accessibility, frontend-performance, and purposeful motion guidance.",
+      "triggers": [
+        "React architecture",
+        "TypeScript interface",
+        "motion design",
+        "interaction design",
+        "design system review",
+        "CSS animation"
+      ],
+      "required_inputs": [
+        "See SKILL.md on the proposing branch"
+      ],
+      "expected_outputs": [
+        "See SKILL.md on the proposing branch"
+      ],
+      "dependencies": {
+        "skills": [],
+        "files": []
+      },
+      "related_skills": [
+        "web-development",
+        "website-audit-engine"
+      ],
+      "tools": "Platform-dependent; verify before use.",
+      "limitations": [
+        "Not selectable by the router until activated per docs/GOVERNANCE.md"
+      ],
+      "verification": [
+        "See SKILL.md verification section"
+      ],
+      "availability": {
+        "path": "skills/full-stack-react-motion-design-engine/SKILL.md",
+        "branch": "feat/website-audit-react-motion-engines",
+        "pr": 2
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "PR #2 description",
+        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation"
+      }
+    }
+  ]
+}

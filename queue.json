@@ -1,11 +1,27 @@
 {
   "name": "RADAR VIBE QUEUE",
-  "version": "1.2.0",
-  "description": "Portable prompt queue with 13 modular queue workflows and 10 importable skills for RADAR social intelligence, creative products, engineering, research, and debugging.",
+  "version": "2.0.0",
+  "description": "RADAR Core Brain: canonical knowledge base, capability-driven skill registry, intelligent routing skill, 12 importable skills, and 14 focused queue prompts for RADAR social intelligence, creative products, engineering, research, and debugging.",
   "entrypoint": "SKILL.md",
   "router": "queues/00-router.md",
   "root_skill": "skills/radar-vibe-queue/SKILL.md",
+  "registry": "registry/skills.json",
+  "intelligent_router": "skills/radar-intelligent-routing/SKILL.md",
+  "knowledge": "knowledge/README.md",
+  "prompt_framework": "framework/prompt-engineering.md",
   "modules": [
+    {
+      "id": "intelligent-routing",
+      "file": "queues/intelligent-routing.md",
+      "skill": "skills/radar-intelligent-routing/SKILL.md",
+      "triggers": [
+        "intelligent routing",
+        "capability discovery",
+        "skill discovery",
+        "task classification",
+        "orchestration"
+      ]
+    },
     {
       "id": "radarmeta-social-intelligence",
       "file": "queues/radarmeta-social-intelligence.md",
@@ -159,6 +175,8 @@
   ],
   "skills": [
     "skills/radar-vibe-queue/SKILL.md",
+    "skills/radar-intelligent-routing/SKILL.md",
+    "skills/agent-continuation/SKILL.md",
     "skills/radar-meta/SKILL.md",
     "skills/universal-agent-architect/SKILL.md",
     "skills/application-engineering/SKILL.md",
