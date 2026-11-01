@@ -20,3 +20,11 @@ This public queue was curated from user-provided research notes, an existing ski
 - Preserved platform-agnostic workflows; skills do not grant service access or permissions.
 - Used research as design input, not as a claim that the repo's instructions grant access to any service or that referenced external documentation was re-checked live.
 - Kept financial research analytical by default and separated recommendations from trading actions.
+
+## 2026-11-01 — RADAR Core Brain foundation (branch `core-brain/foundation`)
+
+- A read-only audit of `main` @ 8130958, both open PR branches, and the owner-maintained knowledge base preceded all changes. Nothing was deleted; no existing skill body was rewritten.
+- New: `knowledge/` (canonical knowledge, seeded from the owner-maintained knowledge base and public sources; private links excluded by the standing public-safety rule), `registry/skills.json` (capability registry: 12 active + 10 pending-review entries for PR #1/#2 skills), `skills/radar-intelligent-routing` (dynamic router), `framework/prompt-engineering.md`, `docs/` (architecture, governance, RADARMatrix integration, migration), `tools/validate-registry.mjs`, `tests/routing.test.mjs`, CI workflow.
+- Fixed: `agent-continuation` was missing from `queue.json` and the README import table on `main`; root `SKILL.md` had drifted from `skills/radar-vibe-queue/SKILL.md` (both re-synced, then upgraded to point at the intelligent router with the static map as fallback).
+- Updated: `queue.json` → 2.0.0 (12 skills / 14 modules), `README.md` counts and indexes.
+- Knowledge provenance: facts dated and sourced per `knowledge/README.md`; unverifiable items recorded as gaps in `knowledge/GAPS.md`, never filled by inference.
