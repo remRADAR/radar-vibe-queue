@@ -1,13 +1,14 @@
 {
   "name": "RADAR Skill Registry",
-  "registry_version": "1.0.0",
+  "registry_version": "1.1.0",
   "schema": "radar-skill-registry/1",
   "description": "Machine-readable capability catalog for the RADAR Core Brain. Consumed by skills/radar-intelligent-routing for capability-driven task routing; consumed by RADARMatrix as its capability catalog input.",
   "policy": {
     "validation": "tools/validate-registry.mjs must pass in CI before any status change",
     "routing": "Only status=active skills are selectable. Pending-review and deprecated skills are never routed.",
     "lifecycle": "See docs/GOVERNANCE.md. New skills register as pending-review and require owner review before activation.",
-    "extensibility": "Adding a skill = registering + validating. The router never hardcodes skill names."
+    "extensibility": "Adding a skill = registering + validating. The router never hardcodes skill names.",
+    "freshness": "governance.last_reviewed is required on every entry; CI warns past 180 days - refresh via skills/radar-skill-evolution"
   },
   "updated": "2026-11-01",
   "domains": [
@@ -171,7 +172,8 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "RADAR Core Brain directive",
-        "provenance": "Authored new; architecture per docs/ARCHITECTURE.md"
+        "provenance": "Authored new; architecture per docs/ARCHITECTURE.md",
+        "last_reviewed": "2026-11-01"
       }
     },
     {
@@ -230,7 +232,8 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "pre-existing skill on main",
-        "provenance": "Original router; preserved as documented fallback"
+        "provenance": "Original router; preserved as documented fallback",
+        "last_reviewed": "2026-11-01"
       }
     },
     {
@@ -299,7 +302,8 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "pre-existing skill on main",
-        "provenance": "Curated from original RADARMeta package"
+        "provenance": "Curated from original RADARMeta package",
+        "last_reviewed": "2026-11-01"
       }
     },
     {
@@ -359,7 +363,8 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "pre-existing skill on main",
-        "provenance": "Generalized from research notes"
+        "provenance": "Generalized from research notes",
+        "last_reviewed": "2026-11-01"
       }
     },
     {
@@ -418,7 +423,8 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "pre-existing skill on main",
-        "provenance": "Generalized from research notes"
+        "provenance": "Generalized from research notes",
+        "last_reviewed": "2026-11-01"
       }
     },
     {
@@ -479,7 +485,8 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "pre-existing skill on main",
-        "provenance": "Generalized from research notes"
+        "provenance": "Generalized from research notes",
+        "last_reviewed": "2026-11-01"
       }
     },
     {
@@ -535,7 +542,8 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "pre-existing skill on main",
-        "provenance": "Generalized from research notes"
+        "provenance": "Generalized from research notes",
+        "last_reviewed": "2026-11-01"
       }
     },
     {
@@ -596,7 +604,8 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "pre-existing skill on main",
-        "provenance": "Generalized from research notes"
+        "provenance": "Generalized from research notes",
+        "last_reviewed": "2026-11-01"
       }
     },
     {
@@ -652,7 +661,8 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "pre-existing skill on main",
-        "provenance": "Generalized from research notes"
+        "provenance": "Generalized from research notes",
+        "last_reviewed": "2026-11-01"
       }
     },
     {
@@ -708,7 +718,8 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "pre-existing skill on main",
-        "provenance": "Generalized from research notes"
+        "provenance": "Generalized from research notes",
+        "last_reviewed": "2026-11-01"
       }
     },
     {
@@ -765,7 +776,8 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "pre-existing skill on main",
-        "provenance": "Generalized from research notes"
+        "provenance": "Generalized from research notes",
+        "last_reviewed": "2026-11-01"
       }
     },
     {
@@ -823,7 +835,165 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "pre-existing skill on main",
-        "provenance": "Was missing from queue.json registration on main; registered here (fix)"
+        "provenance": "Was missing from queue.json registration on main; registered here (fix)",
+        "last_reviewed": "2026-11-01"
+      }
+    },
+    {
+      "id": "radar-junk-audit",
+      "name": "radar-junk-audit",
+      "version": "1.0.0",
+      "status": "active",
+      "domain": "quality-assurance",
+      "secondary_domains": [
+        "devops-infrastructure",
+        "security-governance"
+      ],
+      "summary": "Audits any authorized project for junk code, dead code, unwanted files, and stale dependencies, and removes them safely under explicit owner authorization with post-removal verification.",
+      "responsibilities": [
+        "Junk, dead-code, and unwanted-file detection with evidence",
+        "Security flagging during sweeps (secrets reported, never deleted)",
+        "Authorized, reversible, verified removal"
+      ],
+      "triggers": [
+        "junk code",
+        "dead code",
+        "unused files",
+        "unwanted files",
+        "repo cleanup",
+        "codebase cleanup",
+        "build artifacts",
+        "dependency hygiene",
+        ".gitignore",
+        "lockfile drift",
+        "stale dependencies",
+        "technical debt",
+        "project hygiene"
+      ],
+      "required_inputs": [
+        "Authorized project path or repository reference with read access",
+        "Explicit owner authorization for any deletion (the audit itself runs without it)"
+      ],
+      "expected_outputs": [
+        "Junk audit report: findings by category with paths, sizes, evidence, confidence, and removal risk",
+        "Security findings reported separately (secrets are reported and rotated by the owner, never deleted)",
+        "When authorized: category-batched removal commits on a branch, .gitignore updates, and a passing verification run (tests/build/CI)"
+      ],
+      "dependencies": {
+        "skills": [
+          "radar-vibe-queue",
+          "debug-incident"
+        ],
+        "files": [
+          "registry/skills.json",
+          "queue.json"
+        ]
+      },
+      "related_skills": [
+        "radar-vibe-queue",
+        "debug-incident",
+        "radar-skill-evolution"
+      ],
+      "tools": "Platform-dependent file and git access; verify before use.",
+      "limitations": [
+        "Audit-only by default; no deletion without explicit owner authorization",
+        "Cannot prove intent of commented-out code or unclear files: proposes, owner confirms",
+        "Generated directories (node_modules, dist) regenerate until the source or build config is fixed",
+        "Finds secrets but does not rotate them: rotation is an owner action",
+        "Effectiveness depends on the runtime's real file access to the target project"
+      ],
+      "verification": [
+        "Every finding lists path, category, and evidence",
+        "Removals happen only in git-reversible, category-batched commits on a non-default branch",
+        "Post-removal test/build/CI run passes with exact evidence recorded",
+        "Owner authorization recorded before any deletion"
+      ],
+      "availability": {
+        "path": "skills/radar-junk-audit/SKILL.md",
+        "branch": "main"
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "Owner directive (project hygiene and junk-audit skill)",
+        "provenance": "Authored new; complements debug-incident and RADARMatrix QA practice",
+        "last_reviewed": "2026-11-01"
+      }
+    },
+    {
+      "id": "radar-skill-evolution",
+      "name": "radar-skill-evolution",
+      "version": "1.0.0",
+      "status": "active",
+      "domain": "core-intelligence",
+      "secondary_domains": [
+        "knowledge-management"
+      ],
+      "summary": "Audits skill freshness, researches dated developments and future events across domains, and drafts skill upgrades through the governance lifecycle so the Core Brain stays current. Proposes only; the owner authorizes.",
+      "responsibilities": [
+        "Registry freshness audits",
+        "Dated-source research per domain",
+        "Upgrade drafting through the governance lifecycle"
+      ],
+      "triggers": [
+        "skill evolution",
+        "upgrade skills",
+        "skill upgrade",
+        "skill freshness",
+        "stale skills",
+        "research developments",
+        "technology watch",
+        "future events",
+        "self-improvement",
+        "keep up to date"
+      ],
+      "required_inputs": [
+        "Readable registry/skills.json snapshot",
+        "Research scope: domains or specific skills to refresh",
+        "Owner authorization for any registry status change or merge"
+      ],
+      "expected_outputs": [
+        "Per-skill freshness table (version, last reviewed, staleness tier)",
+        "Research digest with every claim tied to a dated source",
+        "Upgrade drafts as branch commits and draft PRs with validation green; knowledge/GAPS.md updated when research finds nothing"
+      ],
+      "dependencies": {
+        "skills": [
+          "radar-vibe-queue",
+          "radar-intelligent-routing"
+        ],
+        "files": [
+          "registry/skills.json",
+          "knowledge/GAPS.md",
+          "docs/GOVERNANCE.md"
+        ]
+      },
+      "related_skills": [
+        "radar-vibe-queue",
+        "radar-intelligent-routing",
+        "radar-junk-audit"
+      ],
+      "tools": "Platform-dependent research tools and scheduled tasks; verify availability.",
+      "limitations": [
+        "Never merges, activates, or deprecates skills without owner authorization",
+        "Research reflects sources at research time: every claim must carry a source and date",
+        "Cannot predict events: forecasts are [PROPOSAL] with rationale",
+        "Runs only when an agent executes it (for example a scheduled task): the repository does not run autonomously"
+      ],
+      "verification": [
+        "Every research claim cites a dated source",
+        "Upgrade PRs pass registry validation and routing tests before review",
+        "Registry last_reviewed and version bump only after owner approval",
+        "Negative findings recorded in knowledge/GAPS.md rather than manufactured content"
+      ],
+      "availability": {
+        "path": "skills/radar-skill-evolution/SKILL.md",
+        "branch": "main"
+      },
+      "governance": {
+        "registered": "2026-11-01",
+        "source": "Owner directive (self-upgrading skill collection)",
+        "provenance": "Authored new; implements the Core Brain evolution loop per docs/GOVERNANCE.md",
+        "last_reviewed": "2026-11-01"
       }
     },
     {
@@ -872,7 +1042,8 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "PR #1 description",
-        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation"
+        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation",
+        "last_reviewed": "2026-11-01"
       }
     },
     {
@@ -921,7 +1092,8 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "PR #1 description",
-        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation"
+        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation",
+        "last_reviewed": "2026-11-01"
       }
     },
     {
@@ -971,7 +1143,8 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "PR #1 description",
-        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation"
+        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation",
+        "last_reviewed": "2026-11-01"
       }
     },
     {
@@ -1019,7 +1192,8 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "PR #1 description",
-        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation"
+        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation",
+        "last_reviewed": "2026-11-01"
       }
     },
     {
@@ -1069,7 +1243,8 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "PR #1 description",
-        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation"
+        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation",
+        "last_reviewed": "2026-11-01"
       }
     },
     {
@@ -1119,7 +1294,8 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "PR #1 description",
-        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation"
+        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation",
+        "last_reviewed": "2026-11-01"
       }
     },
     {
@@ -1167,7 +1343,8 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "PR #1 description",
-        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation"
+        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation",
+        "last_reviewed": "2026-11-01"
       }
     },
     {
@@ -1213,7 +1390,8 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "PR #1 description",
-        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation"
+        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation",
+        "last_reviewed": "2026-11-01"
       }
     },
     {
@@ -1264,7 +1442,8 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "PR #2 description",
-        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation"
+        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation",
+        "last_reviewed": "2026-11-01"
       }
     },
     {
@@ -1314,7 +1493,8 @@
       "governance": {
         "registered": "2026-11-01",
         "source": "PR #2 description",
-        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation"
+        "provenance": "RECONSTRUCTED content on feature branch; reconcile before activation",
+        "last_reviewed": "2026-11-01"
       }
     }
   ]

@@ -62,6 +62,12 @@ for (const s of registry.skills) {
   for (const sd of s.secondary_domains || []) if (!domainIds.has(sd)) fail('skill ' + s.id + ' has unknown secondary domain ' + sd);
   for (const r of s.related_skills) if (!byId.has(r)) fail('skill ' + s.id + ' references unknown related skill ' + r);
   if (!s.availability || !s.availability.path) fail('skill ' + s.id + ' missing availability.path');
+  if (!s.governance || !s.governance.last_reviewed) fail('skill ' + s.id + ' missing governance.last_reviewed');
+  else {
+    const d = new Date(s.governance.last_reviewed + 'T00:00:00Z');
+    if (isNaN(d.getTime())) fail('skill ' + s.id + ' has invalid governance.last_reviewed');
+    else if ((Date.now() - d.getTime()) / 86400000 > 180) warn('skill ' + s.id + ' not reviewed in >180 days - run skills/radar-skill-evolution');
+  }
   if (s.status === 'active') {
     if (!existsRel(s.availability.path)) fail('active skill path missing: ' + s.availability.path);
     const fm = frontmatter(s.availability.path);
@@ -77,7 +83,7 @@ for (const s of registry.skills) {
     if (!existsRel(f)) fail('skill ' + s.id + ' dependency file missing: ' + f);
   }
 }
-ok('per-skill schema, status, domain, availability, and dependency checks complete');
+ok('per-skill schema, status, domain, availability, governance freshness, and dependency checks complete');
 
 for (const s of registry.skills.filter((x) => x.status === 'active')) {
   const dir = s.availability.path.split('/')[1];
@@ -116,7 +122,8 @@ if (read('SKILL.md') !== read('skills/radar-vibe-queue/SKILL.md')) {
 for (const f of [
   'AGENTS.md', 'QUEUE.md', 'SOURCE_NOTES.md', 'README.md',
   'docs/ARCHITECTURE.md', 'docs/GOVERNANCE.md', 'docs/RADARMATRIX-INTEGRATION.md', 'docs/MIGRATION.md',
-  'framework/prompt-engineering.md', 'queues/00-router.md', 'queues/intelligent-routing.md',
+  'framework/prompt-engineering.md', 'framework/operating-mindset.md',
+  'queues/00-router.md', 'queues/intelligent-routing.md', 'queues/junk-audit.md', 'queues/skill-evolution.md',
   'knowledge/README.md', 'knowledge/GAPS.md',
   'knowledge/organization/identity.md', 'knowledge/organization/terminology.md',
   'knowledge/projects/radar-matrix.md', 'knowledge/projects/radarmusic.md', 'knowledge/projects/radarme.md',

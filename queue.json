@@ -1,7 +1,7 @@
 {
   "name": "RADAR VIBE QUEUE",
-  "version": "2.0.0",
-  "description": "RADAR Core Brain: canonical knowledge base, capability-driven skill registry, intelligent routing skill, 12 importable skills, and 14 focused queue prompts for RADAR social intelligence, creative products, engineering, research, and debugging.",
+  "version": "2.1.0",
+  "description": "RADAR Core Brain: canonical knowledge base, capability-driven skill registry, intelligent routing skill, 14 importable skills, and 16 focused queue prompts for RADAR social intelligence, creative products, engineering, research, and debugging.",
   "entrypoint": "SKILL.md",
   "router": "queues/00-router.md",
   "root_skill": "skills/radar-vibe-queue/SKILL.md",
@@ -171,6 +171,33 @@
         "artist release page",
         "Listen Watch Shorts Press"
       ]
+    },
+    {
+      "id": "junk-audit",
+      "file": "queues/junk-audit.md",
+      "skill": "skills/radar-junk-audit/SKILL.md",
+      "triggers": [
+        "junk code",
+        "dead code",
+        "repo cleanup",
+        "unused files",
+        "unwanted files",
+        "build artifacts",
+        "stale dependencies"
+      ]
+    },
+    {
+      "id": "skill-evolution",
+      "file": "queues/skill-evolution.md",
+      "skill": "skills/radar-skill-evolution/SKILL.md",
+      "triggers": [
+        "skill evolution",
+        "upgrade skills",
+        "skill freshness",
+        "technology watch",
+        "research developments",
+        "keep up to date"
+      ]
     }
   ],
   "skills": [
@@ -185,7 +212,9 @@
     "skills/debug-incident/SKILL.md",
     "skills/market-intelligence/SKILL.md",
     "skills/code-language/SKILL.md",
-    "skills/authorized-product-study/SKILL.md"
+    "skills/authorized-product-study/SKILL.md",
+    "skills/radar-junk-audit/SKILL.md",
+    "skills/radar-skill-evolution/SKILL.md"
   ],
   "portability": {
     "format": "Markdown + YAML frontmatter + JSON",

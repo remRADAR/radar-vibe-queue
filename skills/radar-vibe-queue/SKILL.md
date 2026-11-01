@@ -1,6 +1,6 @@
 ---
 name: radar-vibe-queue
-description: Portable RADAR task router and prompt queue for RADARCharts social intelligence, AI-agent architecture, app and web development, AI-builder coding, debugging, market research, code-language work, and authorized product study. Use when a task spans or needs routing among these RADAR workflows.
+description: Portable RADAR task router and prompt queue for RADARCharts social intelligence, AI-agent architecture, app and web development, AI-builder coding, debugging, market research, code-language work, authorized product study, project hygiene audits, and skill evolution. Use when a task spans or needs routing among these RADAR workflows.
 ---
 
 # RADAR VIBE QUEUE
@@ -32,6 +32,8 @@ When the runtime can read repository files, use the intelligent router: `skills/
 - Language/runtime semantics, translation, code review: `skills/code-language/SKILL.md`
 - Permitted product/website study and independent equivalents: `skills/authorized-product-study/SKILL.md`
 - Cross-agent handoff ledger for multi-session/multi-agent builds: `skills/agent-continuation/SKILL.md`
+- Project junk, dead-code, and unwanted-file audits with authorized cleanup: `skills/radar-junk-audit/SKILL.md`
+- Skill freshness audits, dated-source research, and upgrade proposals: `skills/radar-skill-evolution/SKILL.md`
 
 ## Cross-cutting rules
 
@@ -41,4 +43,4 @@ The matching plain-Markdown queue prompts are under `queues/`; `queue.json` is t
 
 ## Focused prompt packs
 
-For detailed copy/paste workflows, load the matching file from `queues/`: `intelligent-routing.md` for capability-driven routing; `radarmeta-monitoring-cycle.md` for read-only baselines and change logs; `radarmeta-following-hygiene.md` for evidence-based relationship review; `radarmeta-intelligence-modes.md` for account/community/trend briefs; and `radar-release-portal.md` for the RADARMusic artist release page. The release-portal prompt pairs with `skills/web-development/SKILL.md`.
+For detailed copy/paste workflows, load the matching file from `queues/`: `intelligent-routing.md` for capability-driven routing; `radarmeta-monitoring-cycle.md` for read-only baselines and change logs; `radarmeta-following-hygiene.md` for evidence-based relationship review; `radarmeta-intelligence-modes.md` for account/community/trend briefs; and `radar-release-portal.md` for the RADARMusic artist release page. The release-portal prompt pairs with `skills/web-development/SKILL.md`. For hygiene and evolution, use `queues/junk-audit.md` and `queues/skill-evolution.md`.

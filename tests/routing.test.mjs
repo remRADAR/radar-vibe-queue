@@ -47,7 +47,7 @@ function assertEq(actual, expected, label) { if (actual !== expected) throw new 
 test('registry parses with active and pending-review skills', () => {
   const activeSkills = registry.skills.filter((s) => s.status === 'active');
   const pending = registry.skills.filter((s) => s.status === 'pending-review');
-  assert(activeSkills.length >= 12, 'expected >= 12 active skills');
+  assert(activeSkills.length >= 14, 'expected >= 14 active skills');
   assert(pending.length >= 10, 'expected >= 10 pending-review skills');
 });
 
@@ -72,6 +72,9 @@ const FIXTURES = [
   ['Authorized competitor analysis: map the product and build a functional equivalent', 'authorized-product-study'],
   ['Resume work from another agent; update the HANDOFF ledger for cross-agent handoff', 'agent-continuation'],
   ['Use intelligent routing with skill discovery to orchestrate this task', 'radar-intelligent-routing'],
+  ['Audit this project for junk code, dead code, and unwanted files', 'radar-junk-audit'],
+  ['repo cleanup: remove unused files and stale dependencies', 'radar-junk-audit'],
+  ['Run the technology watch: research developments and upgrade skills', 'radar-skill-evolution'],
 ];
 for (const item of FIXTURES) {
   const task = item[0]; const expected = item[1];
@@ -88,6 +91,14 @@ test('cross-domain task selects the smallest effective combination', () => {
   const selected = ranked.map((r) => r.id);
   assert(selected.includes('debug-incident'), 'expected debug-incident in selection');
   assert(selected.includes('web-development'), 'expected web-development in selection');
+  assert(selected.length <= 4, 'selection is not the smallest effective combination: ' + selected.join(', '));
+});
+
+test('hygiene and evolution route together on a combined task', () => {
+  const ranked = route('Repo cleanup first: audit junk code, then run skill evolution to upgrade skills');
+  const selected = ranked.map((r) => r.id);
+  assert(selected.includes('radar-junk-audit'), 'expected radar-junk-audit in selection');
+  assert(selected.includes('radar-skill-evolution'), 'expected radar-skill-evolution in selection');
   assert(selected.length <= 4, 'selection is not the smallest effective combination: ' + selected.join(', '));
 });
 

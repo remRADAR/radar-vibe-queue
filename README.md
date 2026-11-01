@@ -1,6 +1,6 @@
 # RADAR CORE BRAIN — RADAR VIBE QUEUE
 
-The canonical intelligence foundation for the RADAR AI ecosystem: a public, platform-neutral **knowledge base + skill registry + intelligent router + prompt queue** for RADAR social intelligence, agent architecture, software engineering, debugging, market research, and product study. The repository contains **12 importable skills**, **14 focused queue prompts**, a **machine-readable skill registry**, the **canonical RADAR knowledge base**, and the shared routing, governance, and safety instructions.
+The canonical intelligence foundation for the RADAR AI ecosystem: a public, platform-neutral **knowledge base + skill registry + intelligent router + prompt queue** for RADAR social intelligence, agent architecture, software engineering, debugging, market research, product study, project hygiene audits, and skill self-evolution. The repository contains **14 importable skills**, **16 focused queue prompts**, a **machine-readable skill registry**, the **canonical RADAR knowledge base**, and the shared routing, governance, and safety instructions.
 
 Its parent consumer is **RADARMatrix** (`remRADAR/RADARMatrix`), the RADAR AI development operating system. Start with [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — the system is documented for any agent or contributor without needing the original conversation.
 
@@ -10,6 +10,7 @@ Its parent consumer is **RADARMatrix** (`remRADAR/RADARMatrix`), the RADAR AI de
 - **[`registry/skills.json`](registry/skills.json)** — machine-readable skill registry: domains, triggers, inputs/outputs, dependencies, limitations, verification criteria, status. Skills from open PRs are registered as `pending-review` and are never routed until activated.
 - **[`skills/radar-intelligent-routing`](skills/radar-intelligent-routing/SKILL.md)** — the capability-driven router: interpret → retrieve context → discover skills → select the smallest combination → engineer prompts → orchestrate → verify → capture continuity. The legacy static router (`skills/radar-vibe-queue`) remains as fallback.
 - **[`framework/prompt-engineering.md`](framework/prompt-engineering.md)** — the specialist prompt contract and prompt families (research, coding, audit, debugging, architecture, documentation, content, business analysis, QA, multi-agent).
+- **Self-evolution and hygiene** — [`skills/radar-skill-evolution`](skills/radar-skill-evolution/SKILL.md) (freshness audit → dated-source research → upgrade drafts through governance) and [`skills/radar-junk-audit`](skills/radar-junk-audit/SKILL.md) (junk code and unwanted-file audits with authorized, reversible removal), under the [`framework/operating-mindset.md`](framework/operating-mindset.md) operating contract.
 - **Governance and tests** — [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md) (skill lifecycle, no silent overrides), [`tools/validate-registry.mjs`](tools/validate-registry.mjs) and [`tests/routing.test.mjs`](tests/routing.test.mjs) run in CI ([`.github/workflows/validate.yml`](.github/workflows/validate.yml)).
 - **Docs** — [`docs/RADARMATRIX-INTEGRATION.md`](docs/RADARMATRIX-INTEGRATION.md) (integration contract) and [`docs/MIGRATION.md`](docs/MIGRATION.md) (adoption guide, including how open PRs reconcile).
 
@@ -35,6 +36,8 @@ Use the GitHub skill-import workflow and enter the repository and **path relativ
 | Add market intelligence | `remRADAR/radar-vibe-queue` | `skills/market-intelligence` |
 | Add code-language engineering | `remRADAR/radar-vibe-queue` | `skills/code-language` |
 | Add authorized product study | `remRADAR/radar-vibe-queue` | `skills/authorized-product-study` |
+| Add project junk/hygiene audit | `remRADAR/radar-vibe-queue` | `skills/radar-junk-audit` |
+| Add skill evolution / upgrade research | `remRADAR/radar-vibe-queue` | `skills/radar-skill-evolution` |
 
 The repository is public, so no GitHub sign-in should be needed just to read it. For the most reliable skill import, select one directory above; each contains a `SKILL.md`. Importing a specialist does not automatically install the others — import the specialists you want. The router helps choose a workflow, but it **does not automatically install every specialist skill**.
 
@@ -83,6 +86,8 @@ Or download the repository archive: <https://github.com/remRADAR/radar-vibe-queu
 | Market intelligence | [`queues/market-intelligence.md`](queues/market-intelligence.md) | [`skills/market-intelligence`](skills/market-intelligence/SKILL.md) |
 | Code and language engineering | [`queues/code-language.md`](queues/code-language.md) | [`skills/code-language`](skills/code-language/SKILL.md) |
 | Authorized product study | [`queues/authorized-product-study.md`](queues/authorized-product-study.md) | [`skills/authorized-product-study`](skills/authorized-product-study/SKILL.md) |
+| Project junk audit | [`queues/junk-audit.md`](queues/junk-audit.md) | [`skills/radar-junk-audit`](skills/radar-junk-audit/SKILL.md) |
+| Skill evolution / upgrade research | [`queues/skill-evolution.md`](queues/skill-evolution.md) | [`skills/radar-skill-evolution`](skills/radar-skill-evolution/SKILL.md) |
 | RADARMusic release portal build | [`queues/radar-release-portal.md`](queues/radar-release-portal.md) | [`skills/web-development`](skills/web-development/SKILL.md) |
 
 ## Validation and CI
