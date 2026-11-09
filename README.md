@@ -1,6 +1,6 @@
 # RADAR VIBE QUEUE
 
-A public, platform-neutral prompt queue for RADAR social intelligence, agent architecture, software engineering, debugging, market research, and product study. The repository contains **11 importable skills**, **14 focused queue prompts**, and the shared routing and safety instructions.
+A public, platform-neutral prompt queue for RADAR social intelligence, agent architecture, software engineering, debugging, market research, and product study. The repository contains **12 importable skills**, **14 focused queue prompts**, and the shared routing and safety instructions.
 
 - Repository: <https://github.com/remRADAR/radar-vibe-queue>
 - Default branch: `main`
@@ -12,7 +12,8 @@ Use the GitHub skill-import workflow and enter the repository and **path relativ
 
 | Import goal | Repository | Path |
 |---|---|---|
-| Add the RADAR VIBE QUEUE router | `remRADAR/radar-vibe-queue` | `skills/radar-vibe-queue` |
+| Add the Frontier Router (master skill router) | `remRADAR/radar-vibe-queue` | `skills/frontier-router` |
+| Add the RADAR VIBE QUEUE sub-router | `remRADAR/radar-vibe-queue` | `skills/radar-vibe-queue` |
 | Add RADARMeta social intelligence | `remRADAR/radar-vibe-queue` | `skills/radar-meta` |
 | Add agent architecture | `remRADAR/radar-vibe-queue` | `skills/universal-agent-architect` |
 | Add application engineering | `remRADAR/radar-vibe-queue` | `skills/application-engineering` |
@@ -24,9 +25,9 @@ Use the GitHub skill-import workflow and enter the repository and **path relativ
 | Add authorized product study | `remRADAR/radar-vibe-queue` | `skills/authorized-product-study` |
 | Add cross-agent continuation / handoff | `remRADAR/radar-vibe-queue` | `skills/agent-continuation` |
 
-The repository is public, so no GitHub sign-in should be needed just to read it. For the most reliable skill import, select one directory above; each contains a `SKILL.md`. The router helps choose a workflow, but importing it **does not automatically install all ten specialist skills**. Import the specialists you want available as separate skills.
+The repository is public, so no GitHub sign-in should be needed just to read it. For the most reliable skill import, select one directory above; each contains a `SKILL.md`. Use the Frontier Router as the first-pass entry point: it checks task and project context, then identifies the relevant primary and supporting skills. Importing it does not install the other ten specialist skills; import the specialists you want available as separate skills.
 
-If the importer accepts a full folder URL instead of separate fields, use a link such as <https://github.com/remRADAR/radar-vibe-queue/tree/main/skills/radar-meta>. If it supports importing the repository root, the root [`SKILL.md`](SKILL.md) is also an umbrella entry point. The `skills/radar-meta` directory includes its supporting `references/` files.
+If the importer accepts a full folder URL instead of separate fields, use a link such as <https://github.com/remRADAR/radar-vibe-queue/tree/main/skills/radar-meta>. If it supports importing the repository root, the root [`SKILL.md`](SKILL.md) is the Frontier Router entry point. The RADAR VIBE QUEUE skill is a narrower sub-router for this repository’s workflow pack. The `skills/radar-meta` directory includes its supporting `references/` files.
 
 ### Use the queue prompts in Manus
 
@@ -40,7 +41,7 @@ A **skill** is reusable agent guidance; a **queue prompt** is a copy-ready recip
 
 ## Use with other agents
 
-If the agent can load a GitHub repository as project context, add <https://github.com/remRADAR/radar-vibe-queue> and ask it to read `AGENTS.md`, `QUEUE.md`, and `queues/00-router.md`. Then ask it to load the appropriate specialist skill or queue prompt.
+If the agent can load a GitHub repository as project context, add <https://github.com/remRADAR/radar-vibe-queue> and ask it to read `AGENTS.md`, `QUEUE.md`, and the root `SKILL.md` first. Then load the relevant specialist skill and, when useful, its matching queue prompt.
 
 If the agent has a skill-import feature, import one of the `skills/<name>` directories above. Keep the complete directory when copying a skill so bundled references—especially `skills/radar-meta/references/`—remain available. If the agent only accepts prompt text or attachments, paste or attach the relevant Markdown file from `queues/`.
 
@@ -57,7 +58,7 @@ Or download the repository archive: <https://github.com/remRADAR/radar-vibe-queu
 
 | Workflow | Prompt file | Matching skill |
 |---|---|---|
-| General task router | [`queues/00-router.md`](queues/00-router.md) | [`skills/radar-vibe-queue`](skills/radar-vibe-queue) |
+| General first-pass skill router | [`queues/00-router.md`](queues/00-router.md) | [`skills/frontier-router`](skills/frontier-router) |
 | RADARMeta social intelligence | [`queues/radarmeta-social-intelligence.md`](queues/radarmeta-social-intelligence.md) | [`skills/radar-meta`](skills/radar-meta) |
 | RADARMeta monitoring cycle | [`queues/radarmeta-monitoring-cycle.md`](queues/radarmeta-monitoring-cycle.md) | [`skills/radar-meta`](skills/radar-meta) |
 | RADARMeta following hygiene | [`queues/radarmeta-following-hygiene.md`](queues/radarmeta-following-hygiene.md) | [`skills/radar-meta`](skills/radar-meta) |
