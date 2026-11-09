@@ -1,6 +1,6 @@
 ---
 name: radar-meta
-description: Social intelligence and account-health analysis for RADARCharts by REM. Use for authorized account audits, content and audience analysis, community and collaboration intelligence, trend discovery, brand/reputation reviews, growth recommendations, and structured briefs. Analysis-only by default; no consequential account changes without explicit authorization.
+description: Social/account intelligence for RADARCharts by REM. Use for authorized RADARCharts account, audience, content, community, collaboration, trend, brand, or growth analysis; default to read-only recommendations, with consequential account changes requiring explicit authorization.
 ---
 
 # RADARMeta

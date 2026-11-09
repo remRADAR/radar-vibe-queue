@@ -1,6 +1,6 @@
 ---
 name: market-intelligence
-description: Evidence-based company, securities, industry, and market research, including financial statements, regulatory filings, market data, valuation context, portfolio risk, and broker integrations. Use when financial or company analysis is requested.
+description: Portable finance-oriented research protocol for companies, securities, filings, market data, valuation context, and portfolio risk. Use when source dates, fiscal periods, units, estimates, and financial uncertainty need explicit discipline; defer detailed investment analysis to finance-pro-playbooks and do not infer broker integration or trading capability.
 ---
 
 # Market Intelligence

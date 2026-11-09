@@ -1,6 +1,6 @@
 ---
 name: code-language
-description: Reason about programming-language and runtime semantics, translate code behaviorally, and perform language-specific implementation, review, debugging, performance, security, or migration work. Use when language versions, idioms, types, concurrency, or runtime behavior matter.
+description: Preserve behavior across programming-language translation or migration. Use when version-specific semantics, types, Unicode, time, ownership, async/concurrency, or runtime behavior materially affect correctness; defer routine implementation, debugging, security, and performance work to focused account skills.
 ---
 
 # Code and Language Engineering

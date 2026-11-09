@@ -1,6 +1,6 @@
 ---
 name: authorized-product-study
-description: Analyze a website, app, or digital product for a user-owned project, authorized audit, or independent functional equivalent. Use for public-flow mapping, usability comparison, feature discovery, or permitted reverse engineering.
+description: Study an existing website, app, or digital product before designing an independent functional equivalent or conducting an authorized audit. Use for scoped public-flow mapping, feature comparison, and evidence-backed usability observations; do not bypass access controls or copy protected expression.
 ---
 
 # Authorized Product Study

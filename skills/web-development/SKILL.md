@@ -1,6 +1,6 @@
 ---
 name: web-development
-description: Build, modify, debug, review, secure, test, optimize, and prepare web applications for deployment. Use for web UX, frontend/backend flows, APIs, authentication, accessibility, security, performance, SEO, or CI/CD.
+description: Portable coordination checklist for web-app changes that cross frontend and backend concerns. Use when a web task needs an end-to-end project-context review; defer focused accessibility, security, performance, SEO, API, design, and framework work to the matching account skill.
 ---
 
 # Web Development

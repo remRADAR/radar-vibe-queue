@@ -1,6 +1,6 @@
 ---
 name: application-engineering
-description: Principal-level product and application engineering across web, mobile, desktop, APIs, databases, and services. Use for requirements, architecture, data models, implementation, integration, testing, security, performance, deployment preparation, or code review.
+description: Portable cross-layer application-engineering checklist. Use when a product change spans multiple layers or needs coordinated requirements, architecture, implementation, and verification not better served by a focused framework/domain skill; defer standalone API, accessibility, security, performance, or framework-specific work.
 ---
 
 # Application Engineering

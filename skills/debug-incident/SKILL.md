@@ -1,6 +1,6 @@
 ---
 name: debug-incident
-description: Reproduce, localize, diagnose, patch, regression-test, and verify bugs and incidents across frontend, backend, database, APIs, authentication, concurrency, build, deployment, dependencies, configuration, performance, or security.
+description: Triage a service incident or a difficult, cross-layer software failure. Use for impact assessment, evidence preservation, coordinated mitigation/rollback, root-cause investigation, and recovery verification; use the account’s systematic-debugging skill for routine isolated bugs.
 ---
 
 # Debugging and Incident Response

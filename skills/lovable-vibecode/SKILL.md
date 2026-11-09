@@ -1,6 +1,6 @@
 ---
 name: lovable-vibecode
-description: Engineer applications built with Lovable or comparable prompt-driven/AI coding tools. Use for specifying, planning, generating, inspecting, testing, debugging, refactoring, or safely modifying AI-generated apps and integrations.
+description: Review or modify applications built with Lovable or another prompt-driven AI app builder. Use when builder-specific output, connected services, generated code, or platform settings require verification; treat generated changes as untrusted and use account engineering specialists for general implementation.
 ---
 
 # Lovable / Vibecode Engineering

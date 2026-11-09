@@ -1,6 +1,6 @@
 ---
 name: universal-agent-architect
-description: Design, build, evaluate, deploy, and maintain reliable AI agents and tool-using workflows. Use for agent goals, planning, tool contracts, memory, orchestration, handoffs, human review, guardrails, observability, evaluation, or failure recovery.
+description: Design or materially revise an AI agent or tool-using system. Use for agent architecture, permissioned tool contracts, orchestration, memory, human approval, observability, and evaluation; defer routine application coding and generic workflow automation to focused account skills.
 ---
 
 # Universal Agent Architect

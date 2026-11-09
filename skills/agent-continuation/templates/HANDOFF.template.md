@@ -1,13 +1,17 @@
 # HANDOFF — <project name>
 
 <!-- Template for the agent-continuation skill. Copy to repo/workspace root as HANDOFF.md.
-     Append-only: update sections in place, never delete history without recording why. -->
+     Keep current-state sections current; preserve prior decisions/checkpoints in dated history. -->
 
 ## CURRENT STATE
 - Last updated: <ISO timestamp> — <agent identity/profile>
 - Phase: <build | verify | awaiting-user-input | blocked | done>
 - Branch: <name>
 - Uncommitted changes: <exact file list, or "none — all committed at <sha>">
+
+## HISTORY / CHECKPOINTS
+<!-- Dated material decisions and milestones only; keep current state above up to date. -->
+- <timestamp> — <checkpoint>
 
 ## VERIFIED FACTS
 <!-- Only what was actually verified, with command + result. -->

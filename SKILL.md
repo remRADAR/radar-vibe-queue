@@ -1,6 +1,6 @@
 ---
 name: radar-vibe-queue
-description: Portable RADAR task router and prompt queue for RADARCharts social intelligence, AI-agent architecture, app and web development, AI-builder coding, debugging, market research, code-language work, and authorized product study. Use when a task spans or needs routing among these RADAR workflows.
+description: Route work when using this repository’s RADARCharts-specific workflows or bundled specialist skills and queue prompts. Use for RADAR social intelligence, AI-agent system design, genuine cross-agent handoffs, AI-builder review, authorized product study, or cross-cutting work that needs this portable pack; defer generic specialist tasks to the current account’s focused skills.
 ---
 
 # RADAR VIBE QUEUE
@@ -11,7 +11,7 @@ Route the request to the smallest useful specialist skill. This skill provides a
 
 1. Identify the user's requested outcome, deliverable, constraints, audience, and authorized scope.
 2. Inspect available files, tools, repository state, source freshness, and permissions. Do not assume access from this skill.
-3. Select one primary specialist and only the supporting skills that the task needs. Load the corresponding `SKILL.md` from `skills/`.
+3. Use this repository only when its distinctive context applies. Prefer a more focused account skill for generic engineering, debugging, research, finance, web, accessibility, performance, security, or SEO work; use a bundled skill as a context-specific supplement, not a replacement. Load only the relevant `SKILL.md` and any referenced resource needed for the task.
 4. Work within scope, keeping evidence separate from hypotheses, recommendations, and actions.
 5. Verify the artifact or result; report exact evidence, limitations, and any next approval gate.
 
@@ -25,7 +25,8 @@ Route the request to the smallest useful specialist skill. This skill provides a
 - Bugs, outages, regressions, incidents: `skills/debug-incident/SKILL.md`
 - Company/market/financial research: `skills/market-intelligence/SKILL.md`
 - Language/runtime semantics, translation, code review: `skills/code-language/SKILL.md`
-- Permitted product/website study and independent equivalents: `skills/authorized-product-study/SKILL.md`
+- Permitted product/website study before designing an independent equivalent: `skills/authorized-product-study/SKILL.md`
+- Genuine cross-agent/session implementation handoff: `skills/agent-continuation/SKILL.md`
 
 ## Cross-cutting rules
 

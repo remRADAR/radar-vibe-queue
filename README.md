@@ -1,6 +1,6 @@
 # RADAR VIBE QUEUE
 
-A public, platform-neutral prompt queue for RADAR social intelligence, agent architecture, software engineering, debugging, market research, and product study. The repository contains **10 importable skills**, **13 focused queue prompts**, and the shared routing and safety instructions.
+A public, platform-neutral prompt queue for RADAR social intelligence, agent architecture, software engineering, debugging, market research, and product study. The repository contains **11 importable skills**, **14 focused queue prompts**, and the shared routing and safety instructions.
 
 - Repository: <https://github.com/remRADAR/radar-vibe-queue>
 - Default branch: `main`
@@ -22,8 +22,9 @@ Use the GitHub skill-import workflow and enter the repository and **path relativ
 | Add market intelligence | `remRADAR/radar-vibe-queue` | `skills/market-intelligence` |
 | Add code-language engineering | `remRADAR/radar-vibe-queue` | `skills/code-language` |
 | Add authorized product study | `remRADAR/radar-vibe-queue` | `skills/authorized-product-study` |
+| Add cross-agent continuation / handoff | `remRADAR/radar-vibe-queue` | `skills/agent-continuation` |
 
-The repository is public, so no GitHub sign-in should be needed just to read it. For the most reliable skill import, select one directory above; each contains a `SKILL.md`. The router helps choose a workflow, but importing it **does not automatically install all nine specialist skills**. Import the specialists you want available as separate skills.
+The repository is public, so no GitHub sign-in should be needed just to read it. For the most reliable skill import, select one directory above; each contains a `SKILL.md`. The router helps choose a workflow, but importing it **does not automatically install all ten specialist skills**. Import the specialists you want available as separate skills.
 
 If the importer accepts a full folder URL instead of separate fields, use a link such as <https://github.com/remRADAR/radar-vibe-queue/tree/main/skills/radar-meta>. If it supports importing the repository root, the root [`SKILL.md`](SKILL.md) is also an umbrella entry point. The `skills/radar-meta` directory includes its supporting `references/` files.
 
@@ -69,6 +70,7 @@ Or download the repository archive: <https://github.com/remRADAR/radar-vibe-queu
 | Market intelligence | [`queues/market-intelligence.md`](queues/market-intelligence.md) | [`skills/market-intelligence`](skills/market-intelligence) |
 | Code and language engineering | [`queues/code-language.md`](queues/code-language.md) | [`skills/code-language`](skills/code-language) |
 | Authorized product study | [`queues/authorized-product-study.md`](queues/authorized-product-study.md) | [`skills/authorized-product-study`](skills/authorized-product-study) |
+| Cross-agent continuation / handoff | [`queues/agent-continuation.md`](queues/agent-continuation.md) | [`skills/agent-continuation`](skills/agent-continuation) |
 | RADARMusic release portal build | [`queues/radar-release-portal.md`](queues/radar-release-portal.md) | [`skills/web-development`](skills/web-development) |
 
 ## Troubleshooting “repository or path not found”
