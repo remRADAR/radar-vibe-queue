@@ -1,0 +1,4 @@
+# Teamily GitHub MCP probe
+
+Throwaway file created to prove write access and PR merge capability.
+Safe to delete. Created by Teamily AI on 2026-11-24.
